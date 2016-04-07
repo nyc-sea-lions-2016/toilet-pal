@@ -34,6 +34,9 @@ ActiveRecord::Schema.define(version: 20160407172750) do
   add_index "reviews", ["toilet_id"], name: "index_reviews_on_toilet_id", using: :btree
 
   create_table "toilets", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.string   "location",   null: false
+    t.string   "type",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
