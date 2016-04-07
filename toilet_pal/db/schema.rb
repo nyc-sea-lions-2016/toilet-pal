@@ -16,25 +16,6 @@ ActiveRecord::Schema.define(version: 20160407172750) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "users", force: :cascade do |t|
-    t.string   "username",          null: false
-    t.string   "password_digest",   null: false
-    t.string   "email",             null: false
-    t.string   "first_name",        null: false
-    t.string   "last_name",         null: false
-    t.integer  "zip_code",          null: false
-    t.string   "gender",            null: false
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
-    t.string   "logo_file_name"
-    t.string   "logo_content_type"
-    t.integer  "logo_file_size"
-    t.datetime "logo_updated_at"
-  end
-
-  add_index "users", ["password_digest"], name: "index_users_on_password_digest", using: :btree
-  add_index "users", ["username"], name: "index_users_on_username", using: :btree
-
   create_table "favorites", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -53,13 +34,30 @@ ActiveRecord::Schema.define(version: 20160407172750) do
   add_index "reviews", ["toilet_id"], name: "index_reviews_on_toilet_id", using: :btree
 
   create_table "toilets", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.string   "location",   null: false
+    t.string   "type",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "username",          null: false
+    t.string   "password_digest",   null: false
+    t.string   "email",             null: false
+    t.string   "first_name",        null: false
+    t.string   "last_name",         null: false
+    t.integer  "zip_code",          null: false
+    t.string   "gender",            null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
   end
+
+  add_index "users", ["password_digest"], name: "index_users_on_password_digest", using: :btree
+  add_index "users", ["username"], name: "index_users_on_username", using: :btree
 
 end
