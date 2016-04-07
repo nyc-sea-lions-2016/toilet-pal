@@ -8,3 +8,17 @@
 <div>
 	<%= image_tag "fancy_toilet.jpg" %>
 </div>
+
+<% @toilet.reviews.each do |review| %>
+	<div class='row'>
+		<div class='large-3 columns'>
+			<a href='/users/<%= review.reviewer_id %>'><%= review.reviewer.username %></a>
+			<p>Rating: <%= review.rating %></p>
+		</div>
+	</div>
+	<div class='row'>
+		<div class='large-3 columns'>
+			<%= review.review_text %>
+		</div>
+	</div>
+<% end %>
