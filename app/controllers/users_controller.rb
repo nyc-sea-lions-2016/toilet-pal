@@ -6,15 +6,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      found_user = User.find_by(username: params[:user][:username])
-      if found_user && found_user.authenticate(params[:user][:password])
-        session[:user_id] = found_user.id
-        redirect_to @user
-      else
-        # erb :'/sessions/new'
-      end
+      log_in @user
+      redirect_to @user
     else
       @errors = @user.errors.full_messages
+      render 'new'
     end
   end
 
