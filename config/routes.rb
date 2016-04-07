@@ -1,8 +1,11 @@
 Rails.application.routes.draw do
-  get 'user/new'
 
-  get 'toilets/index'
+  root 'welcome#index'
+
+  get 'user/new'
   get 'users/new'
+
+  resources :toilets
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
