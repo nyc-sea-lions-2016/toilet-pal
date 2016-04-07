@@ -1,11 +1,20 @@
 Rails.application.routes.draw do
 
+<<<<<<< HEAD
   root 'welcome#index'
 
   get 'user/new'
   get 'users/new'
   
   resources :toilets
+=======
+  get    'login'   => 'sessions#new'
+  post   'login'   => 'sessions#create'
+  delete 'logout'  => 'sessions#destroy'
+  get 'toilets/index'
+
+  resources :users
+>>>>>>> e938c9b... Add user authentication with nav bar options
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
