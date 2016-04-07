@@ -22,8 +22,11 @@ ActiveRecord::Schema.define(version: 20160407160437) do
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 >>>>>>> 0608922... Including gem file and assets folder in commit. Missed on last commit
+=======
+>>>>>>> 14963a2... Commit before merge
   create_table "favorites", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -42,6 +45,9 @@ ActiveRecord::Schema.define(version: 20160407160437) do
   add_index "reviews", ["toilet_id"], name: "index_reviews_on_toilet_id", using: :btree
 
   create_table "toilets", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.string   "location",   null: false
+    t.string   "type",       null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -60,6 +66,7 @@ ActiveRecord::Schema.define(version: 20160407160437) do
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
+<<<<<<< HEAD
   end
 
 <<<<<<< HEAD
@@ -78,15 +85,20 @@ ActiveRecord::Schema.define(version: 20160407160437) do
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
+=======
+>>>>>>> 14963a2... Commit before merge
   end
 
   add_index "users", ["password_digest"], name: "index_users_on_password_digest", using: :btree
   add_index "users", ["username"], name: "index_users_on_username", using: :btree
 
+<<<<<<< HEAD
 >>>>>>> be3045e... Include gems for bcrypt and avatar - create user model and migration with validations
 =======
   add_index "users", ["password_digest"], name: "index_users_on_password_digest", using: :btree
   add_index "users", ["username"], name: "index_users_on_username", using: :btree
 
 >>>>>>> 0608922... Including gem file and assets folder in commit. Missed on last commit
+=======
+>>>>>>> 14963a2... Commit before merge
 end
