@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'user/new'
 
   get 'toilets/index'
   get 'users/new'
