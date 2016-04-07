@@ -17,6 +17,9 @@ gem 'coffee-rails', '~> 4.1.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
+
+gem 'jquery-ui-rails'
+
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
@@ -25,7 +28,8 @@ gem 'pry'
 gem'httparty'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-# avatars for users: avatars_for_rails:install user
+
+# avatars_for_rails:install user
 gem 'avatars_for_rails'
 
 # Use Unicorn as the app server
