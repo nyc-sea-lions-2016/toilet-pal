@@ -14,14 +14,24 @@
 <div class="top-bar" id="main-menu">
   <div class="top-bar-left">
     <ul class="dropdown menu" data-dropdown-menu>
-      <li class="menu-text">TOILET PAL</li>
+      <li id="logo" class="menu-text">TOILET PAL</li>
     </ul>
   </div>
   <div class="top-bar-right">
     <ul class="menu" data-responsive-menu="drilldown medium-dropdown">
-      <li class="has-submenu">
-        <a href="#">Login</a>
-      </li>
+      <% if logged_in? %>
+        <li>
+          <%= link_to 'Profile', current_user %>
+          <%= link_to "Log out", logout_path, method: :delete %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to 'New User', new_user_path %>
+        </li>
+        <li class="has-submenu">
+          <%= link_to 'Login', login_path %>
+        </li>
+      <% end %>
     </ul>
   </div>
 </div>
