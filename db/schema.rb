@@ -11,11 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160407172750) do
+=======
+ActiveRecord::Schema.define(version: 20160407160437) do
+>>>>>>> be3045e... Include gems for bcrypt and avatar - create user model and migration with validations
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+<<<<<<< HEAD
   create_table "favorites", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -43,4 +48,25 @@ ActiveRecord::Schema.define(version: 20160407172750) do
     t.datetime "updated_at", null: false
   end
 
+=======
+  create_table "users", force: :cascade do |t|
+    t.string   "username",          null: false
+    t.string   "password_digest",   null: false
+    t.string   "email",             null: false
+    t.string   "first_name",        null: false
+    t.string   "last_name",         null: false
+    t.integer  "zip_code",          null: false
+    t.string   "gender",            null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "logo_file_name"
+    t.string   "logo_content_type"
+    t.integer  "logo_file_size"
+    t.datetime "logo_updated_at"
+  end
+
+  add_index "users", ["password_digest"], name: "index_users_on_password_digest", using: :btree
+  add_index "users", ["username"], name: "index_users_on_username", using: :btree
+
+>>>>>>> be3045e... Include gems for bcrypt and avatar - create user model and migration with validations
 end
