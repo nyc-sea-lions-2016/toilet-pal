@@ -8,8 +8,7 @@
 
 
 response = HTTParty.get('https://data.cityofnewyork.us/resource/h87e-shkn.json')
-# binding.pry
-response.each do |item| 
+response.each do |item|
 	Toilet.create(
 		name: item['name'],
 		location: item['location'],
@@ -17,3 +16,17 @@ response.each do |item|
 	)
 end
 
+Toilet.all.each do |toilet|
+  binding.pry
+    address = toilet.location.gsub(" ", "+")
+    url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=AIzaSyALN7GVrxfs8xQmQ1Rn1AXZe-uOGd3muVU"
+  response = HTTParty.get(url)
+    binding.pry
+    toilet.zip_code = nil
+    toilet.neighborhood = response["results"][0]["address_components"][1]["long_name"] || nil
+    toilet.sublocality = response["results"][0]["address_components"][2]["long_name"] || nil
+    toilet.latitude = response["results"][0]["geometry"]["location"]["lat"] || nil
+    toilet.longitude = response["results"][0]["geometry"]["location"]["lng"] || nil
+    toilet.save
+
+end
