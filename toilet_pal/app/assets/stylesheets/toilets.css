@@ -1,0 +1,15 @@
+#google-map {
+  width: 500px;
+  height: 400px;
+  background-color: yellow;
+}
+
+#toilets-index-table {
+  background-color: black;
+}
+
+
+#toilets-index-list {
+  background-color: red;
+  display:inline-block;
+}
