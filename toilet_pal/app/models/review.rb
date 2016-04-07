@@ -1,4 +1,7 @@
 class Review < ActiveRecord::Base
+	belongs_to :reviewer, class_name: 'User'
+	belongs_to :toilet
+
   validates :review_text, presence: true
 
   validate :unique_review
