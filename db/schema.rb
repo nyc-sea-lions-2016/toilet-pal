@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20160407160437) do
     t.datetime "updated_at", null: false
   end
 
+<<<<<<< HEAD
   create_table "users", force: :cascade do |t|
     t.string   "username",          null: false
     t.string   "password_digest",   null: false
@@ -101,4 +102,6 @@ ActiveRecord::Schema.define(version: 20160407160437) do
 >>>>>>> 0608922... Including gem file and assets folder in commit. Missed on last commit
 =======
 >>>>>>> 14963a2... Commit before merge
+=======
+>>>>>>> d4e4875... add users controller
 end
