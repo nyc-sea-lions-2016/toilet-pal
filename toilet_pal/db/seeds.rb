@@ -8,8 +8,7 @@
 
 
 response = HTTParty.get('https://data.cityofnewyork.us/resource/h87e-shkn.json')
-# binding.pry
-response.each do |item| 
+response.each do |item|
 	Toilet.create(
 		name: item['name'],
 		location: item['location'],
@@ -17,7 +16,7 @@ response.each do |item|
 	)
 end
 
-20.times do 
+20.times do
 	User.create({
 		username: Faker::Hipster.word,
 		password: 'pw',
