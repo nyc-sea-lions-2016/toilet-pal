@@ -12,7 +12,6 @@
  *
  *= require avatars_for_rails
  *= require_tree .
+ *= require jquery-ui
  *= require_self
  */
-
-require_tree
