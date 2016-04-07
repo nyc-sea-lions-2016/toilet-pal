@@ -11,7 +11,7 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
   test "login with valid information followed by logout" do
     get login_path
     post login_path, session: { email: @user.email, password: 'password' }
-    assert is_logged_in?
+    assert logged_in?
     assert_redirected_to @user
     follow_redirect!
     assert_template 'users/show'
@@ -19,8 +19,8 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", logout_path
     assert_select "a[href=?]", user_path(@user)
     delete logout_path
-    assert_not is_logged_in?
-    assert_redirected_to root_url
+    assert_not logged_in?
+    assert_redirected_to root_path
     follow_redirect!
     assert_select "a[href=?]", login_path
     assert_select "a[href=?]", logout_path,      count: 0
