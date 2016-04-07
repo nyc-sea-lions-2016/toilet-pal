@@ -1,4 +1,4 @@
-class CreateReviews < ActiveRecord::Migration
+rclass CreateReviews < ActiveRecord::Migration
   def change
     create_table :reviews do |t|
       t.belongs_to :reviewer, null:false, index: true
