@@ -16,7 +16,7 @@ response.each do |item|
 	)
 end
 
-puts Toilet.count
+puts "#{Toilet.count} toilets seeded"
 
 Toilet.all.each do |toilet|
     address = toilet.location.gsub(" ", "+") + ",+New+York+City,+NY"
@@ -35,6 +35,7 @@ Toilet.all.each do |toilet|
   end
 end
 
+puts "#{Toilet.count} toilets updated"
 
 20.times do
 	User.create({
@@ -48,6 +49,8 @@ end
 		})
 end
 
+puts "#{User.count} users seeded"
+
 Toilet.all.each do |toilet|
 	5.times do
 		Review.create({
@@ -58,3 +61,5 @@ Toilet.all.each do |toilet|
 			})
 	end
 end
+
+puts "#{Review.count} reviews seeded"
