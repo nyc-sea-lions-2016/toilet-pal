@@ -8,8 +8,7 @@
 
 
 response = HTTParty.get('https://data.cityofnewyork.us/resource/h87e-shkn.json')
-# binding.pry
-response.each do |item| 
+response.each do |item|
 	Toilet.create(
 		name: item['name'],
 		location: item['location'],
@@ -17,7 +16,27 @@ response.each do |item|
 	)
 end
 
-20.times do 
+puts Toilet.count
+
+Toilet.all.each do |toilet|
+    address = toilet.location.gsub(" ", "+") + ",+New+York+City,+NY"
+    url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=AIzaSyALN7GVrxfs8xQmQ1Rn1AXZe-uOGd3muVU"
+  response = HTTParty.get(url)
+  begin
+    if response["status"] == "OK"
+      toilet.zip_code = nil
+      toilet.neighborhood = response["results"][0]["address_components"][1]["long_name"]
+      toilet.sublocality = response["results"][0]["address_components"][2]["long_name"]
+      toilet.latitude = response["results"][0]["geometry"]["location"]["lat"]
+      toilet.longitude = response["results"][0]["geometry"]["location"]["lng"]
+      toilet.save
+    end
+  rescue
+  end
+end
+
+
+20.times do
 	User.create({
 		username: Faker::Hipster.word,
 		password: 'pw',
