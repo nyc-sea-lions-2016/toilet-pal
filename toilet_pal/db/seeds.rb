@@ -22,8 +22,9 @@ puts "#{Toilet.count} toilets seeded"
 
 Toilet.all.each do |toilet|
     address = toilet.location.gsub(" ", "+") + ",+New+York+City,+NY"
-    url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=" + ENV['GOOGLE_MAP_KEY']
-  	response = HTTParty.get(url)
+    url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=" + ENV["GOOGLE_MAP_KEY"]
+  response = HTTParty.get(url)
+
   begin
     if response["status"] == "OK"
       toilet.zip_code = nil
