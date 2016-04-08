@@ -19,6 +19,7 @@ Rails.application.routes.draw do
 =======
   resources :users
   resources :reviews
+<<<<<<< HEAD
   resources :toilets
   resources :favorites
   get '/toilets/:id/review' => 'reviews#new'
@@ -27,6 +28,12 @@ Rails.application.routes.draw do
 =======
   get 'toilets/:id/favorite' => 'favorites#new'
 >>>>>>> 48019f4... Made validations for favorites, set up seed file for favorites
+=======
+  resources :toilets, only: [:index, :show]
+  get '/toilets/:id/review' => 'reviews#new'
+
+  get '/toilet_data' => 'toilets#toilet_data'
+>>>>>>> 254a0af... Add working pins for map
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
