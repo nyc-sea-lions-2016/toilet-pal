@@ -2,7 +2,7 @@ class Review < ActiveRecord::Base
 	belongs_to :reviewer, class_name: 'User'
 	belongs_to :toilet
 
-  validates :review_text, presence: true
+  validates :review_text, :reviewer_id, :toilet, presence: true
 
   validate :unique_review
 
