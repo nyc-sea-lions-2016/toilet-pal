@@ -25,7 +25,7 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome to ToiletPal!"
       redirect_to @user
     else
-      @errors = @user.errors.full_messages
+      flash.now[:danger] = 'Invalid email/password combination'
       render 'users/new'
 >>>>>>> 20e2bf4... Add admin to user model
     end
