@@ -22,3 +22,20 @@
     border-bottom: 1px solid $gray-lighter;
   }
 }
+
+.user-about {
+  display: block;
+  text-align: center;
+  border-style: solid;
+  border-color: #73B99C;
+  width: 25%;
+  margin: auto;
+}
+
+.reviews-user {
+  margin-left: 160px;
+}
+
+.favorites-user {
+  margin-right: 160px;
+}
