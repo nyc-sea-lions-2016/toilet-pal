@@ -18,10 +18,44 @@ end
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 20.times do 
+=======
+puts Toilet.count
+
+Toilet.all.each do |toilet|
+    address = toilet.location.gsub(" ", "+") + ",+New+York+City,+NY"
+    url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=AIzaSyALN7GVrxfs8xQmQ1Rn1AXZe-uOGd3muVU"
+  response = HTTParty.get(url)
+  begin
+    if response["status"] == "OK"
+      toilet.zip_code = nil
+      toilet.neighborhood = response["results"][0]["address_components"][1]["long_name"]
+      toilet.sublocality = response["results"][0]["address_components"][2]["long_name"]
+      toilet.latitude = response["results"][0]["geometry"]["location"]["lat"]
+      toilet.longitude = response["results"][0]["geometry"]["location"]["lng"]
+      toilet.save
+    end
+  rescue
+  end
+end
+
+User.create!(username:  "fj",
+             email: "example@railstutorial.org",
+             password:              "foobar",
+             password_confirmation: "foobar",
+             first_name: Faker::Name.first_name,
+             last_name: Faker::Name.last_name,
+             zip_code: Faker::Address.zip,
+             gender: Faker::StarWars.specie,
+             admin: true)
+
+20.times do
+>>>>>>> 20e2bf4... Add admin to user model
 	User.create({
 		username: Faker::Hipster.word,
-		password: 'pw',
+		password: 'foobar',
+    password_confirmation: 'foobar',
 		email: Faker::Internet.email,
 		first_name: Faker::Name.first_name,
 		last_name: Faker::Name.last_name,

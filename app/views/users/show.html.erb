@@ -22,3 +22,23 @@
   <strong>Gender:</strong>
   <%= @user.gender %>
 </p>
+
+<p>
+  <strong><%= @user.username.capitalize %>'s Reviews:</strong>
+  <ul>
+    <% @user.reviews.each do |review| %>
+      <li>Rating: <%= review.rating %></li>
+      <li>Review: <%= review.review_text %></li>
+    <% end %>
+  </ul>
+</p>
+
+<p>
+  <strong><%= @user.username.capitalize %>'s Favorites:</strong>
+  <ul>
+    <% @user.favorites.each do |favorite| %>
+      <li>Rating: <%= review.rating %></li>
+      <li>Review: <%= review.review_text %></li>
+    <% end %>
+  </ul>
+</p>

@@ -12,10 +12,14 @@
 # It's strongly recommended that you check this file into your version control system.
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160407172750) do
 =======
 ActiveRecord::Schema.define(version: 20160407160437) do
 >>>>>>> be3045e... Include gems for bcrypt and avatar - create user model and migration with validations
+=======
+ActiveRecord::Schema.define(version: 20160408152153) do
+>>>>>>> 20e2bf4... Add admin to user model
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,20 +63,24 @@ ActiveRecord::Schema.define(version: 20160407160437) do
 
 <<<<<<< HEAD
   create_table "users", force: :cascade do |t|
-    t.string   "username",          null: false
-    t.string   "password_digest",   null: false
-    t.string   "email",             null: false
-    t.string   "first_name",        null: false
-    t.string   "last_name",         null: false
-    t.integer  "zip_code",          null: false
-    t.string   "gender",            null: false
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.string   "username",                          null: false
+    t.string   "password_digest",                   null: false
+    t.string   "email",                             null: false
+    t.string   "first_name",                        null: false
+    t.string   "last_name",                         null: false
+    t.integer  "zip_code",                          null: false
+    t.string   "gender",                            null: false
+    t.datetime "created_at",                        null: false
+    t.datetime "updated_at",                        null: false
     t.string   "logo_file_name"
     t.string   "logo_content_type"
     t.integer  "logo_file_size"
     t.datetime "logo_updated_at"
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    t.boolean  "admin",             default: false
+>>>>>>> 20e2bf4... Add admin to user model
   end
 
 <<<<<<< HEAD
