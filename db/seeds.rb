@@ -19,9 +19,13 @@ end
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 20.times do 
 =======
 puts Toilet.count
+=======
+
+>>>>>>> 141739d... Created model for favorites, created columns for favorites table
 
 Toilet.all.each do |toilet|
     address = toilet.location.gsub(" ", "+") + ",+New+York+City,+NY"
