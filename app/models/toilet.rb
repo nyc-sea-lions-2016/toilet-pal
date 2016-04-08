@@ -14,4 +14,6 @@ class Toilet < ActiveRecord::Base
 		end
 	end
 
+
+
 end

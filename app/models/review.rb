@@ -10,4 +10,9 @@ class Review < ActiveRecord::Base
     # Check to make sure user has not already reviewed that toilet.
   end
 
+  def self.reviewer(review)
+  	binding.pry
+  	User.find_by(id: review.reviewer_id)
+  end
+
 end
