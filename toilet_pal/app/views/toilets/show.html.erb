@@ -13,15 +13,13 @@
 
 
 <% @toilet.reviews.each do |review| %>
-	<div class='toilet_reviews'>
-		<div class='reviewer_info'>
+	<div class='review_wrapper'>
+		<div class='reviewer_info toilet_reviews'>
 			<a href='/users/<%= review.reviewer_id %>'><%= review.reviewer.username %></a>
 			<p>Rating: <%= review.rating %></p>
 		</div>
-	</div>
-	<div class='toilet_reviews'>
-		<div class=''>
-			<%= review.review_text %>
+		<div class='review_text toilet_reviews'>
+			<%= review.review_text[2..-1] %>
 		</div>
 	</div>
 <% end %>
