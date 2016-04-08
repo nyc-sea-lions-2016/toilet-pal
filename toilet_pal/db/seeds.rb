@@ -17,6 +17,7 @@ response.each do |item|
 
 end
 
+puts "#{Toilet.count} toilets seeded"
 
 
 Toilet.all.each do |toilet|
@@ -81,7 +82,5 @@ end
 
 
 end
-
-
 
 
