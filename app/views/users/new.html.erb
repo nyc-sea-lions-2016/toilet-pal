@@ -12,6 +12,11 @@
   </p>
 
   <p>
+    <%= render partial: 'avatars/form',
+           object: @user,
+           as: :avatarable %>
+  </p>
+  <p>
     <%= f.label :email %><br>
     <%= f.email_field :email %>
   </p>
