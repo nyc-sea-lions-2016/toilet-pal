@@ -21,12 +21,16 @@ end
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 20.times do 
 =======
 puts Toilet.count
 =======
 
 >>>>>>> 141739d... Created model for favorites, created columns for favorites table
+=======
+puts "#{Toilet.count} toilets seeded"
+>>>>>>> 12e689c... add parameters in toilet index controller
 
 Toilet.all.each do |toilet|
     address = toilet.location.gsub(" ", "+") + ",+New+York+City,+NY"
@@ -46,6 +50,7 @@ Toilet.all.each do |toilet|
 
 end
 
+<<<<<<< HEAD
 User.create!(username:  "fj",
              email: "example@railstutorial.org",
              password:              "foobar",
@@ -55,6 +60,9 @@ User.create!(username:  "fj",
              zip_code: Faker::Address.zip,
              gender: Faker::StarWars.specie,
              admin: true)
+=======
+puts "#{Toilet.count} toilets updated"
+>>>>>>> 12e689c... add parameters in toilet index controller
 
 20.times do
 >>>>>>> 20e2bf4... Add admin to user model
@@ -74,6 +82,8 @@ User.create!(username:  "fj",
 		})
 
 end
+
+puts "#{User.count} users seeded"
 
 Toilet.all.each do |toilet|
 	5.times do
@@ -111,6 +121,7 @@ end
 >>>>>>> 8976156... Add call to google geo api for each toilet added to database
 =======
 end
+<<<<<<< HEAD
 >>>>>>> 69822ce... Updated migration for toilets to include zip code, neighborhood, sublocality, latitude and longitude
 =======
   begin
@@ -156,3 +167,7 @@ end
 
 
 >>>>>>> 48019f4... Made validations for favorites, set up seed file for favorites
+=======
+
+puts "#{Review.count} reviews seeded"
+>>>>>>> 12e689c... add parameters in toilet index controller
