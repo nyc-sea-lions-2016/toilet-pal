@@ -6,10 +6,10 @@ Rails.application.routes.draw do
   delete 'logout'  => 'sessions#destroy'
   resources :users
   resources :reviews
-  resources :toilets
-  resources :favorites
+  resources :toilets, only: [:index, :show]
   get '/toilets/:id/review' => 'reviews#new'
-  get 'toilets/:id/favorite' => 'favorites#new'
+
+  get '/toilet_data' => 'toilets#toilet_data'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
