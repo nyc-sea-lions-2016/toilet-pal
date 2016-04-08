@@ -36,7 +36,7 @@ ActiveRecord::Schema.define(version: 20160407160437) do
     t.integer  "reviewer_id", null: false
     t.integer  "toilet_id",   null: false
     t.string   "review_text", null: false
-    t.integer  "rating"
+    t.integer  "rating",      null: false
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
   end

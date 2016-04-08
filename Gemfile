@@ -29,9 +29,13 @@ gem'httparty'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
 <<<<<<< HEAD
+<<<<<<< HEAD
 # avatars for users: avatars_for_rails:install user
 =======
 
+=======
+gem 'faker'
+>>>>>>> e0b4552... css on toilet show page, updated seed file
 # avatars_for_rails:install user
 >>>>>>> d4e4875... add users controller
 gem 'avatars_for_rails'

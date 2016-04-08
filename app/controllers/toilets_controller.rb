@@ -4,6 +4,7 @@ class ToiletsController < ApplicationController
 
   def show
   	@toilet = Toilet.find_by(id: params[:id])
+  
   	@average_review = Toilet.average_review(@toilet)
   end
 
