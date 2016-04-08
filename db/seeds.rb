@@ -59,7 +59,7 @@ Toilet.all.each do |toilet|
 	end
 end
 
-200.times do
+500.times do
 	Favorite.create(
 		favoriter_id: rand(1..20),
 		toilet_id: rand(1..804)
