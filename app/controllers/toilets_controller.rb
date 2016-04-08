@@ -1,5 +1,7 @@
 class ToiletsController < ApplicationController
   def index
+    @toilets = Toilet.all
+    # @jsToilets = Toilet.all.to_json.html_safe
 
     if params[:user_input]
     #get user input from previous page.
@@ -28,6 +30,10 @@ class ToiletsController < ApplicationController
   	@toilet = Toilet.find_by(id: params[:id])
 
   	@average_review = Toilet.average_review(@toilet)
+  end
+
+  def toilet_data
+    render json: Toilet.all
   end
 
 end
