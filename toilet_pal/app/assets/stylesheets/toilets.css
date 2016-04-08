@@ -13,3 +13,29 @@
   background-color: red;
   display:inline-block;
 }
+#toilet_image {
+	float: right;
+}
+
+.toilet_reviews {
+	text-align: center;
+	width: 50%;
+	margin: auto;
+}
+
+.reviewer_info {
+	background-color: rgb(193,245,239) 
+}
+
+.reviews_new_form {
+  width: 40%;
+  margin: auto;
+  text-align: center;
+}
+
+.reviews_new_button {
+  width: 40%;
+  margin: auto;
+  text-align: center;
+  margin-bottom: 5%;
+}
