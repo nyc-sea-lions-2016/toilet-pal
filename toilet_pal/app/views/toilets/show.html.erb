@@ -2,6 +2,7 @@
 	<div class='large-8 columns'>
 		<h1><%= @toilet.name %> Toilet's</h1>
 		<p>Location: <%= @toilet.location %></p>
+		<p>Neighborhood: <%= @toilet.neighborhood %></p>
 		<p>Average Review: <%= @average_review %></p>
 		<a href='/toilets/<%= @toilet.id %>/review'>Click</a> to review your Toilet experience
 	</div>
@@ -17,6 +18,7 @@
 		<div class='reviewer_info toilet_reviews'>
 			<a href='/users/<%= review.reviewer_id %>'><%= review.reviewer.username %></a>
 			<p>Rating: <%= review.rating %></p>
+
 		</div>
 		<div class='review_text toilet_reviews'>
 			<%= review.review_text[2..-1] %>

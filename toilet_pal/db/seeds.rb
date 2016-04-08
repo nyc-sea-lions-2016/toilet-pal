@@ -39,3 +39,4 @@ Toilet.all.each do |toilet|
 			})
 	end
 end
+
