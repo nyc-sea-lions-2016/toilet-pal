@@ -13,6 +13,7 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 20160407172750) do
 =======
 ActiveRecord::Schema.define(version: 20160407160437) do
@@ -20,6 +21,9 @@ ActiveRecord::Schema.define(version: 20160407160437) do
 =======
 ActiveRecord::Schema.define(version: 20160408152153) do
 >>>>>>> 20e2bf4... Add admin to user model
+=======
+ActiveRecord::Schema.define(version: 20160408182645) do
+>>>>>>> 9a7af3e... save point
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +72,7 @@ ActiveRecord::Schema.define(version: 20160408152153) do
 
 <<<<<<< HEAD
   create_table "users", force: :cascade do |t|
+<<<<<<< HEAD
     t.string   "username",                          null: false
     t.string   "password_digest",                   null: false
     t.string   "email",                             null: false
@@ -86,6 +91,18 @@ ActiveRecord::Schema.define(version: 20160408152153) do
 =======
     t.boolean  "admin",             default: false
 >>>>>>> 20e2bf4... Add admin to user model
+=======
+    t.string   "username",                        null: false
+    t.string   "password_digest",                 null: false
+    t.string   "email",                           null: false
+    t.string   "first_name",                      null: false
+    t.string   "last_name",                       null: false
+    t.integer  "zip_code",                        null: false
+    t.string   "gender",                          null: false
+    t.datetime "created_at",                      null: false
+    t.datetime "updated_at",                      null: false
+    t.boolean  "admin",           default: false
+>>>>>>> 9a7af3e... save point
   end
 
 <<<<<<< HEAD

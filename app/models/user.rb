@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
 
   has_secure_password
-  acts_as_avatarable
+  has_attached_file :avatar, :styles => { :medium => "300x300>", :thumb => "100x100#" }, :default_url => "/images/:style/missing.png"
 
   has_many :favorites, foreign_key: 'favoriter_id'
   has_many :favorite_toilets, through: :favorites, source: 'toilets'
@@ -13,4 +13,5 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 6 }
   validates :email, :first_name, :last_name, :zip_code, :gender, {presence: true}
   validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
+  validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
 end
