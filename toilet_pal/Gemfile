@@ -28,7 +28,7 @@ gem 'pry'
 gem'httparty'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-
+gem 'faker'
 # avatars_for_rails:install user
 gem 'avatars_for_rails'
 
