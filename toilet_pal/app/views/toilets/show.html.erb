@@ -1,12 +1,16 @@
 <div class='row'>
 	<div class='large-8 columns'>
+		<% if @toilet.favorites.any?{|fav| fav.favoriter_id == session[:user_id]} %>
+			<%= image_tag "fav-star.jpg" %>
+		<% else %>
+			<a href='/toilets/<%= @toilet.id %>/favorite'><%= image_tag "non-fav-star.jpg"%></a>
+		<% end %>
 		<h1><%= @toilet.name %> Toilet's</h1>
 		<p>Location: <%= @toilet.location %></p>
 		<p>Neighborhood: <%= @toilet.neighborhood %></p>
 		<p>Borough: <%= @toilet.sublocality %></p>
 		<p>Average Review: <%= @average_review %></p>
-		<a href='/toilets/<%= @toilet.id %>/review'>Click</a> to review your Toilet experience
-		<a href='/toilets/<%= @toilet.id %>/favorite'>Click</a> to favorite this Toilet
+		<p><a href='/toilets/<%= @toilet.id %>/review'>Click</a> to review your Toilet experience</p>
 	</div>
 	<div class='large-3 columns' id='toilet_image'>
 		<%= image_tag "fancy_toilet.jpg" %>

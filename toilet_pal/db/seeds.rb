@@ -14,6 +14,7 @@ response.each do |item|
 		location: item['location'],
 		description: item['type']
 	)
+
 end
 
 Toilet.all.each do |toilet|
@@ -33,6 +34,7 @@ Toilet.all.each do |toilet|
       puts toilet
       puts response
   end
+
 end
 
 User.create!(username:  "fj",
@@ -56,6 +58,7 @@ User.create!(username:  "fj",
 		zip_code: Faker::Address.zip,
 		gender: Faker::StarWars.specie
 		})
+
 end
 
 Toilet.all.each do |toilet|
@@ -63,17 +66,19 @@ Toilet.all.each do |toilet|
 		Review.create({
 			toilet_id: toilet.id,
 			review_text: Faker::Hipster.paragraphs(3)[0] + Faker::Hipster.paragraphs(3)[1] + Faker::Hipster.paragraphs(3)[2],
-			reviewer_id: rand(1..20),
+			reviewer_id: User.all.sample.id,
 			rating: rand(1..5)
 			})
 	end
+
 end
 
 500.times do
-	Favorite.create(
-		favoriter_id: rand(1..20),
-		toilet_id: rand(1..804)
-		)
+	Favorite.create({
+		favoriter_id:  User.all.sample.id,
+		toilet_id:  Toilet.all.sample.id
+		})
+
 
 end
 
