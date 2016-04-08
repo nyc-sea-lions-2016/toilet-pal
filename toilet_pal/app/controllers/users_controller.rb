@@ -9,7 +9,7 @@ class UsersController < ApplicationController
       log_in @user
       redirect_to @user
     else
-      @errors = @user.errors.full_messages
+      flash.now[:danger] = 'Invalid email/password combination'
       render 'new'
     end
   end
