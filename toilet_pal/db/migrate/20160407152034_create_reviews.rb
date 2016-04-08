@@ -4,8 +4,7 @@ class CreateReviews < ActiveRecord::Migration
       t.belongs_to :reviewer, null:false, index: true
       t.belongs_to :toilet, null: false, index: true
       t.string :review_text, null: false
-      t.integer :rating
-
+      t.integer :rating, null: false
       t.timestamps null: false
     end
   end

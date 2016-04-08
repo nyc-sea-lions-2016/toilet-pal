@@ -8,10 +8,12 @@ class Toilet < ActiveRecord::Base
 
 	def self.average_review(toilet)
 		if (toilet.reviews.length) > 0
-			(toilet.reviews.reduce(0){|sum,review| sum += review})/(toilet.reviews.length)
+			(toilet.reviews.reduce(0){|sum,review| sum += review.rating})/(toilet.reviews.length)
 		else 
 			'Be the first to review this toilet!'
 		end
 	end
+
+
 
 end
