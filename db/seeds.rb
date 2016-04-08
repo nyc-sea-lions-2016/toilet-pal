@@ -22,6 +22,7 @@ end
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 20.times do 
 =======
 puts Toilet.count
@@ -31,6 +32,8 @@ puts Toilet.count
 =======
 puts "#{Toilet.count} toilets seeded"
 >>>>>>> 12e689c... add parameters in toilet index controller
+=======
+>>>>>>> 4868d57... who the fuck knows
 
 Toilet.all.each do |toilet|
     address = toilet.location.gsub(" ", "+") + ",+New+York+City,+NY"
@@ -47,7 +50,7 @@ Toilet.all.each do |toilet|
     end
   rescue
   end
-
+  puts toilet.id
 end
 
 <<<<<<< HEAD
@@ -69,12 +72,18 @@ puts "#{Toilet.count} toilets updated"
 	User.create({
 		username: Faker::Hipster.word,
 <<<<<<< HEAD
+<<<<<<< HEAD
 		password: 'foobar',
     password_confirmation: 'foobar',
 =======
 		password: 'passwword',
 >>>>>>> ac73b49... Add star images
 		email: Faker::Internet.email,
+=======
+    password: 'passwword',
+    password_confirmation: 'passwword',
+		email: "example@railstutorial.org",
+>>>>>>> 4868d57... who the fuck knows
 		first_name: Faker::Name.first_name,
 		last_name: Faker::Name.last_name,
 		zip_code: Faker::Address.zip,

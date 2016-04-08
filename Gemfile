@@ -35,11 +35,15 @@ gem 'bcrypt', '~> 3.1.7'
 
 =======
 gem 'faker'
+<<<<<<< HEAD
 >>>>>>> e0b4552... css on toilet show page, updated seed file
 # avatars_for_rails:install user
 >>>>>>> d4e4875... add users controller
 gem 'avatars_for_rails'
+=======
+>>>>>>> 4868d57... who the fuck knows
 
+gem 'will_paginate', '~> 3.0.6'
 # Use Unicorn as the app server
 # gem 'unicorn'
 
