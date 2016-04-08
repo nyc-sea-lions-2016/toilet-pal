@@ -17,9 +17,14 @@ ActiveRecord::Schema.define(version: 20160408152153) do
   enable_extension "plpgsql"
 
   create_table "favorites", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "favoriter_id", null: false
+    t.integer  "toilet_id",    null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
+
+  add_index "favorites", ["favoriter_id"], name: "index_favorites_on_favoriter_id", using: :btree
+  add_index "favorites", ["toilet_id"], name: "index_favorites_on_toilet_id", using: :btree
 
   create_table "reviews", force: :cascade do |t|
     t.integer  "reviewer_id", null: false
