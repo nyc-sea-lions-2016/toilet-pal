@@ -16,26 +16,22 @@ response.each do |item|
 	)
 end
 
-20.times do
-	User.create({
-		username: Faker::Hipster.word,
-		password: 'pw',
-		email: Faker::Internet.email,
-		first_name: Faker::Name.first_name,
-		last_name: Faker::Name.last_name,
-		zip_code: Faker::Address.zip,
-		gender: Faker::StarWars.specie
-		})
-end
-
 Toilet.all.each do |toilet|
-    address = toilet.location.gsub(" ", "+")
+    address = toilet.location.gsub(" ", "+") + ",+New+York+City,+NY"
     url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=AIzaSyALN7GVrxfs8xQmQ1Rn1AXZe-uOGd3muVU"
   response = HTTParty.get(url)
-    toilet.zip_code = nil
-    toilet.neighborhood = response["results"][0]["address_components"][1]["long_name"] || nil
-    toilet.sublocality = response["results"][0]["address_components"][2]["long_name"] || nil
-    toilet.latitude = response["results"][0]["geometry"]["location"]["lat"] || nil
-    toilet.longitude = response["results"][0]["geometry"]["location"]["lng"] || nil
-    toilet.save
+  begin
+    if response["status"] == "OK"
+      toilet.zip_code = nil
+      toilet.neighborhood = response["results"][0]["address_components"][1]["long_name"]
+      toilet.sublocality = response["results"][0]["address_components"][2]["long_name"]
+      toilet.latitude = response["results"][0]["geometry"]["location"]["lat"]
+      toilet.longitude = response["results"][0]["geometry"]["location"]["lng"]
+      toilet.save
+    end
+  rescue
+      puts toilet
+      puts response
+  end
+  puts toilet.id
 end
