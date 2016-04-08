@@ -74,6 +74,7 @@ Toilet.all.each do |toilet|
 			})
 	end
 end
+<<<<<<< HEAD
 =======
 =======
 puts Toilet.count
@@ -114,3 +115,6 @@ end
   puts toilet.id
 end
 >>>>>>> 55d0a7e... Add call to google api
+=======
+
+>>>>>>> e156f60... commit before merge with new seed file
