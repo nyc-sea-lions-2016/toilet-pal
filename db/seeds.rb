@@ -84,6 +84,7 @@ end
 puts Toilet.count
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 55d0a7e... Add call to google api
 Toilet.all.each do |toilet|
     address = toilet.location.gsub(" ", "+") + ",+New+York+City,+NY"
@@ -125,6 +126,9 @@ end
 >>>>>>> e156f60... commit before merge with new seed file
 =======
 200.times do
+=======
+500.times do
+>>>>>>> 57d07a7... Update seed file
 	Favorite.create(
 		favoriter_id: rand(1..20),
 		toilet_id: rand(1..804)
