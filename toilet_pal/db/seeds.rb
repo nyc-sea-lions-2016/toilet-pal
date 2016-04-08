@@ -20,7 +20,7 @@ end
 
 Toilet.all.each do |toilet|
     address = toilet.location.gsub(" ", "+") + ",+New+York+City,+NY"
-    url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=AIzaSyALN7GVrxfs8xQmQ1Rn1AXZe-uOGd3muVU"
+    url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=" + ENV["GOOGLE_MAP_KEY"]
   response = HTTParty.get(url)
   begin
     if response["status"] == "OK"
