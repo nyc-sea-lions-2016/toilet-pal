@@ -17,6 +17,7 @@ response.each do |item|
 end
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 20.times do 
 	User.create({
 		username: Faker::Hipster.word,
@@ -40,10 +41,15 @@ Toilet.all.each do |toilet|
 	end
 end
 =======
+=======
+puts Toilet.count
+
+>>>>>>> 55d0a7e... Add call to google api
 Toilet.all.each do |toilet|
-    address = toilet.location.gsub(" ", "+")
+    address = toilet.location.gsub(" ", "+") + ",+New+York+City,+NY"
     url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=AIzaSyALN7GVrxfs8xQmQ1Rn1AXZe-uOGd3muVU"
   response = HTTParty.get(url)
+<<<<<<< HEAD
     toilet.zip_code = nil
     toilet.neighborhood = response["results"][0]["address_components"][1]["long_name"] || nil
     toilet.sublocality = response["results"][0]["address_components"][2]["long_name"] || nil
@@ -57,3 +63,20 @@ end
 =======
 end
 >>>>>>> 69822ce... Updated migration for toilets to include zip code, neighborhood, sublocality, latitude and longitude
+=======
+  begin
+    if response["status"] == "OK"
+      toilet.zip_code = nil
+      toilet.neighborhood = response["results"][0]["address_components"][1]["long_name"]
+      toilet.sublocality = response["results"][0]["address_components"][2]["long_name"]
+      toilet.latitude = response["results"][0]["geometry"]["location"]["lat"]
+      toilet.longitude = response["results"][0]["geometry"]["location"]["lng"]
+      toilet.save
+    end
+  rescue
+      puts toilet
+      puts response
+  end
+  puts toilet.id
+end
+>>>>>>> 55d0a7e... Add call to google api
