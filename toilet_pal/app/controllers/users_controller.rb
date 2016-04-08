@@ -14,7 +14,7 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome to ToiletPal!"
       redirect_to @user
     else
-      @errors = @user.errors.full_messages
+      flash.now[:danger] = 'Invalid email/password combination'
       render 'users/new'
     end
   end
