@@ -16,7 +16,7 @@ response.each do |item|
 	)
 end
 
-puts Toilet.count
+
 
 Toilet.all.each do |toilet|
     address = toilet.location.gsub(" ", "+") + ",+New+York+City,+NY"
