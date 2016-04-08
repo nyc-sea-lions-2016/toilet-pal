@@ -1,5 +1,7 @@
+<div class='row'>
 <p>
   <strong>User:</strong>
+  <%= gravatar_for @user %>
   <%= @user.username %>
 </p>
 
@@ -37,7 +39,7 @@
   <strong><%= @user.username.capitalize %>'s Favorites:</strong>
   <ul>
     <% @user.favorites.each do |favorite| %>
-      <li>Favorite Toilets: <%= favorite %></li>
+      <li>Favorite Toilets: <%= link_to "#{favorite.toilet.name}", toilet_path(favorite.toilet)  %></li>
     <% end %>
   </ul>
 </p>
