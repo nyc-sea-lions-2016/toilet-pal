@@ -3,10 +3,10 @@ class User < ActiveRecord::Base
   has_secure_password
   acts_as_avatarable
 
-  has_many :favorites
-  has_many :favorite_toilets, through: :favorites, class_name: "Toilet", foreign_key: "user_id"
-  has_many :reviews
-  has_many :reviewed_toilets, through: :reviews, class_name: "Toilet"
+  has_many :favorites, foreign_key: 'favoriter_id'
+  has_many :favorite_toilets, through: :favorites, source: 'toilets'
+  has_many :reviews, foreign_key: 'reviewer_id'
+  has_many :reviewed_toilets, through: :reviews, source: 'toilets'
 
   before_save { self.email = email.downcase }
   validates :username, {presence: true, uniqueness: true, length: { maximum: 50 }}

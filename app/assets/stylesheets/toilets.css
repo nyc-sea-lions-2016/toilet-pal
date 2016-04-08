@@ -15,7 +15,11 @@
 }
 #toilet_image {
 	float: right;
+  -webkit-box-shadow: 8px 8px 6px -6px black;
+     -moz-box-shadow: 8px 8px 6px -6px black;
+          box-shadow: 8px 8px 6px -6px black;
 }
+
 
 .toilet_reviews {
 	text-align: center;
@@ -59,9 +63,4 @@
 
 }
 
-img {
-    -webkit-box-shadow: 8px 8px 6px -6px black;
-     -moz-box-shadow: 8px 8px 6px -6px black;
-          box-shadow: 8px 8px 6px -6px black;
-}
 
