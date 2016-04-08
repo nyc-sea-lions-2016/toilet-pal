@@ -9,5 +9,4 @@ class Review < ActiveRecord::Base
   def unique_review
     # Check to make sure user has not already reviewed that toilet.
   end
-
 end
