@@ -1,7 +1,12 @@
 class ToiletsController < ApplicationController
   def index
-    @toilets = Toilet.all
-    # @jsToilets = Toilet.all.to_json.html_safe
+
+    @center_manhattan = [40.7831, -73.9712]
+
+    # toilets within ten miles (in meters) of central manhattan:
+    @toilets = Toilet.all.select do |toilet|
+      toilet.distance_to(@center_manhattan[0], @center_manhattan[1]) < 16093
+    end
 
     if params[:user_input]
     #get user input from previous page.
@@ -15,6 +20,9 @@ class ToiletsController < ApplicationController
           if response["status"] == "OK"
             @user_input_latitude = response["results"][0]["geometry"]["location"]["lat"]
             @user_input_longitude = response["results"][0]["geometry"]["location"]["lng"]
+            @toilets = Toilet.all.select do |toilet|
+                toilet.distance_to(@user_input_latitude, @user_input_longitude) < 1609 #one mile in meters
+            end
           end
         rescue
           #add error here if we had to run the rescue loop. Google could not find a match
