@@ -1,6 +1,16 @@
 
 <% if !@user_input%>
 
+  <script>
+    var currentLongitude = -73.9712; //default at center manhattan
+    var currentLatitude = 40.7831; //default at center manhattan
+    navigator.geolocation.getCurrentPosition(function(p){
+      currentLatitude = p.coords.latitude;
+      currentLongitude = p.coords.longitude;
+    });
+
+  </script>
+
 <!-- give search box for user to choose where they want to go -->
 
 <% else %>
