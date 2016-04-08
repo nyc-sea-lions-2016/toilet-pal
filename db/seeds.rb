@@ -35,11 +35,21 @@ Toilet.all.each do |toilet|
   end
 end
 
+User.create!(username:  "fj",
+             email: "example@railstutorial.org",
+             password:              "foobar",
+             password_confirmation: "foobar",
+             first_name: Faker::Name.first_name,
+             last_name: Faker::Name.last_name,
+             zip_code: Faker::Address.zip,
+             gender: Faker::StarWars.specie,
+             admin: true)
 
 20.times do
 	User.create({
 		username: Faker::Hipster.word,
-		password: 'pw',
+		password: 'foobar',
+    password_confirmation: 'foobar',
 		email: Faker::Internet.email,
 		first_name: Faker::Name.first_name,
 		last_name: Faker::Name.last_name,
