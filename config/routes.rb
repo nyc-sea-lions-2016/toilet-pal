@@ -11,10 +11,17 @@ Rails.application.routes.draw do
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
+<<<<<<< HEAD
   get 'toilets/index'
 
   resources :users
 >>>>>>> e938c9b... Add user authentication with nav bar options
+=======
+  resources :users
+  resources :reviews
+  resources :toilets
+  get '/toilets/:id/review' => 'reviews#new'
+>>>>>>> 8c5549a... Finish adding reviews to toilet show page, needs error handling still
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

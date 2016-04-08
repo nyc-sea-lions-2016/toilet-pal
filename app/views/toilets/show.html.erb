@@ -1,23 +1,26 @@
-<h1><%= @toilet.name %> Toilet's</h1>
-
-<div>
-	<p>Location: <%= @toilet.location %></p>
-	<p>Average Review: <%= @average_review %></p>
-<div>
-
-<div>
-	<%= image_tag "fancy_toilet.jpg" %>
+<div class='row'>
+	<div class='large-8 columns'>
+		<h1><%= @toilet.name %> Toilet's</h1>
+		<p>Location: <%= @toilet.location %></p>
+		<p>Average Review: <%= @average_review %></p>
+		<a href='/toilets/<%= @toilet.id %>/review'>Click</a> to review your Toilet experience
+	</div>
+	<div class='large-3 columns' id='toilet_image'>
+		<%= image_tag "fancy_toilet.jpg" %>
+	</div>
 </div>
 
+
+
 <% @toilet.reviews.each do |review| %>
-	<div class='row'>
-		<div class='large-3 columns'>
+	<div class='toilet_reviews'>
+		<div class='reviewer_info'>
 			<a href='/users/<%= review.reviewer_id %>'><%= review.reviewer.username %></a>
 			<p>Rating: <%= review.rating %></p>
 		</div>
 	</div>
-	<div class='row'>
-		<div class='large-3 columns'>
+	<div class='toilet_reviews'>
+		<div class=''>
 			<%= review.review_text %>
 		</div>
 	</div>
