@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-	
+
 	def new
 		@toilet = Toilet.find(params[:id])
 	end
@@ -15,6 +15,9 @@ class ReviewsController < ApplicationController
 		end
 	end
 
+	def show
+		@reviews = Review.paginate(:page => params[:page])
+	end
 
 private
 
