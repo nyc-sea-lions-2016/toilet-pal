@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   acts_as_avatarable
 
   has_many :favorites
-  has_many :favorite_toilets, through: :favorites, class_name: "Toilet", foreign_key: "user_id"
+  has_many :favorite_toilets, through: :favorites, class_name: "Toilet"
   has_many :reviews
   has_many :reviewed_toilets, through: :reviews, class_name: "Toilet"
 

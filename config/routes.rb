@@ -20,8 +20,13 @@ Rails.application.routes.draw do
   resources :users
   resources :reviews
   resources :toilets
+  resources :favorites
   get '/toilets/:id/review' => 'reviews#new'
+<<<<<<< HEAD
 >>>>>>> 8c5549a... Finish adding reviews to toilet show page, needs error handling still
+=======
+  get 'toilets/:id/favorite' => 'favorites#new'
+>>>>>>> 48019f4... Made validations for favorites, set up seed file for favorites
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
