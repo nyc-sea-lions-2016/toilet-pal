@@ -6,6 +6,7 @@
 		<p>Borough: <%= @toilet.sublocality %></p>
 		<p>Average Review: <%= @average_review %></p>
 		<a href='/toilets/<%= @toilet.id %>/review'>Click</a> to review your Toilet experience
+		<a href='/toilets/<%= @toilet.id %>/favorite'>Click</a> to favorite this Toilet
 	</div>
 	<div class='large-3 columns' id='toilet_image'>
 		<%= image_tag "fancy_toilet.jpg" %>
