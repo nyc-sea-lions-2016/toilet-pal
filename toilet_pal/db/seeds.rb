@@ -57,3 +57,15 @@ User.create!(username:  "fj",
 		gender: Faker::StarWars.specie
 		})
 end
+
+Toilet.all.each do |toilet|
+	5.times do
+		Review.create({
+			toilet_id: toilet.id,
+			review_text: Faker::Hipster.paragraphs(3)[0] + Faker::Hipster.paragraphs(3)[1] + Faker::Hipster.paragraphs(3)[2],
+			reviewer_id: rand(1..20),
+			rating: rand(1..5)
+			})
+	end
+end
+
