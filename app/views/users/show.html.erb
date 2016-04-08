@@ -37,8 +37,7 @@
   <strong><%= @user.username.capitalize %>'s Favorites:</strong>
   <ul>
     <% @user.favorites.each do |favorite| %>
-      <li>Rating: <%= review.rating %></li>
-      <li>Review: <%= review.review_text %></li>
+      <li>Favorite Toilets: <%= favorite %></li>
     <% end %>
   </ul>
 </p>
