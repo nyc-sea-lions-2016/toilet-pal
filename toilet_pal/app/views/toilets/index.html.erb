@@ -8,15 +8,12 @@
     });
 </script>
 
-<h1>Toilets near you: </h1>
+<h1 id="homepage-header"> Helping you take the browns to the superbowl since 1999</h1>
 
 <div id="toilets-index-table" class="row">
 
-  <div id="toilets-index-list" class="small-block-grid-1 large-block-grid-2">
-    <%= render @toilets %>
-  </div>
 
-  <div id="google-map" class="small-block-grid-1 large-block-grid-2"></div>
+  <div id="google-map" ></div>
 
 
   <script>
@@ -44,6 +41,11 @@
   }
   </script>
   <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"async defer></script>
+
+
+  <div id="toilets-index-list" >
+    <%= render @toilets %>
+  </div>
 
 </div>
 
