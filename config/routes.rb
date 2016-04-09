@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 <<<<<<< HEAD
+<<<<<<< HEAD
   root 'welcome#index'
 
   get 'user/new'
@@ -8,6 +9,9 @@ Rails.application.routes.draw do
   
   resources :toilets
 =======
+=======
+  root 'toilets#index'
+>>>>>>> 8e4f86e... Map of toilets is homepage
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
