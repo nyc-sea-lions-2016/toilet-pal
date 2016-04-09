@@ -5,7 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-binding.pry
 
 response = HTTParty.get('https://data.cityofnewyork.us/resource/h87e-shkn.json')
 response.each do |item|
@@ -44,8 +43,8 @@ Toilet.all.each do |toilet|
       toilet.zip_code = nil
       toilet.neighborhood = response["results"][0]["address_components"][1]["long_name"]
       toilet.sublocality = response["results"][0]["address_components"][2]["long_name"]
-      toilet.latitude = response["results"][0]["geometry"]["location"]["lat"]
-      toilet.longitude = response["results"][0]["geometry"]["location"]["lng"]
+      toilet.latitude = response["results"][0]["geometry"]["location"]["lat"].to_f
+      toilet.longitude = response["results"][0]["geometry"]["location"]["lng"].to_f
       toilet.save
     end
   rescue
