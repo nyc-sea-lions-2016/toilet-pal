@@ -4,6 +4,14 @@
   background-color: yellow;
 }
 
+#google-map-show {
+  width: 500px;
+  height: 400px;
+  background-color: yellow;
+  float: right;
+}
+
+
 #toilets-index-table {
   background-color: black;
 }
