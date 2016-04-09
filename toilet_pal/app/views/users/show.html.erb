@@ -1,24 +1,52 @@
-<p>
-  <strong>User:</strong>
-  <%= @user.username %>
-</p>
+<div class='row'>
+  <div class='user-about'>
+    <p>
+      <strong>User:</strong>
+      <%= gravatar_for @user %>
+      <%= @user.username %>
+    </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+    <p>
+      <strong>Email:</strong>
+      <%= @user.email %>
+    </p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.first_name %> <%= @user.last_name %>
-</p>
+    <p>
+      <strong>Name:</strong>
+      <%= @user.first_name %> <%= @user.last_name %>
+    </p>
 
-<p>
-  <strong>Zip:</strong>
-  <%= @user.zip_code %>
-</p>
+    <p>
+      <strong>Zip:</strong>
+      <%= @user.zip_code %>
+    </p>
 
-<p>
-  <strong>Gender:</strong>
-  <%= @user.gender %>
-</p>
+    <p>
+      <strong>Gender:</strong>
+      <%= @user.gender %>
+    </p>
+  </div>
+</div><br>
+<div class= 'callout clearfix'>
+  <div class='float-left reviews-user'>
+    <p>
+      <strong><%= @user.username.capitalize %>'s Reviews:</strong>
+      <ul>
+        <% @user.reviews.each do |review| %>
+          <li>Rating: <%= review.rating %></li>
+          <li>Review: <%= link_to "#{review.toilet.name}", toilet_path(review.toilet) %></li>
+        <% end %>
+      </ul>
+    </p>
+  </div>
+    <div class='float-right favorites-user'>
+    <p>
+      <strong><%= @user.username.capitalize %>'s Favorites:</strong>
+      <ul>
+        <% @user.favorites.each do |favorite| %>
+          <li>Favorite Toilets: <%= link_to "#{favorite.toilet.name}", toilet_path(favorite.toilet)  %></li>
+        <% end %>
+      </ul>
+    </p>
+  </div>
+</div>
