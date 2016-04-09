@@ -5,7 +5,7 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-
+binding.pry
 
 response = HTTParty.get('https://data.cityofnewyork.us/resource/h87e-shkn.json')
 response.each do |item|
