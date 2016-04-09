@@ -17,8 +17,6 @@ response.each do |item|
 
 end
 
-puts "#{Toilet.count} toilets seeded"
-
 
 Toilet.all.each do |toilet|
     address = toilet.location.gsub(" ", "+") + ",+New+York+City,+NY"
@@ -39,13 +37,22 @@ Toilet.all.each do |toilet|
   puts toilet.id
 end
 
-puts "#{Toilet.count} toilets updated"
+User.create!(username:  "fj",
+             email: "example@railstutorial.org",
+             password:              "foobar",
+             password_confirmation: "foobar",
+             first_name: Faker::Name.first_name,
+             last_name: Faker::Name.last_name,
+             zip_code: Faker::Address.zip,
+             gender: Faker::StarWars.specie,
+             admin: true)
 
 20.times do
 	User.create({
 		username: Faker::Hipster.word,
-		password: 'passwword',
-		email: Faker::Internet.email,
+    password: 'passwword',
+    password_confirmation: 'passwword',
+		email: "example@railstutorial.org",
 		first_name: Faker::Name.first_name,
 		last_name: Faker::Name.last_name,
 		zip_code: Faker::Address.zip,
@@ -53,8 +60,6 @@ puts "#{Toilet.count} toilets updated"
 		})
 
 end
-
-puts "#{User.count} users seeded"
 
 Toilet.all.each do |toilet|
 	5.times do
@@ -76,5 +81,4 @@ end
 
 end
 
-puts "#{Review.count} reviews seeded"
 
