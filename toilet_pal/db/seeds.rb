@@ -13,7 +13,6 @@ response.each do |item|
 		location: item['location'],
 		description: item['type']
 	)
-
 end
 
 
