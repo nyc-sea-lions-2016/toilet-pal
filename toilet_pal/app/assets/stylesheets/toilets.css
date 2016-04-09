@@ -22,7 +22,6 @@
 
 
 #toilets-index-list {
-  background-color: gray;
   display:inline-block;
   height: 50%;
   width: 100%;
@@ -80,7 +79,9 @@
 
 }
 
-.top_title {
-  padding-top: 1rem;
+.toilet-block {
+  display:block;
+  float:left;
+  border: black 2px solid;
+  background-color: grey;
 }
-
