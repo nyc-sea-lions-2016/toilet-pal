@@ -6,6 +6,12 @@ class Toilet < ActiveRecord::Base
 
 	validates :name, :location, :description, presence: true
 
+  geocoded_by :full_street_address # can also be an IP address
+
+  def full_street_address
+    location + "New York City, NY, USA"
+  end
+
 	def self.average_review(toilet)
 		if (toilet.reviews.length) > 0
 			(toilet.reviews.reduce(0){|sum,review| sum += review.rating})/(toilet.reviews.length)
