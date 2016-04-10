@@ -37,7 +37,12 @@ Rails.application.routes.draw do
   get '/toilets/:id/review' => 'reviews#new'
 
   get '/toilet_data' => 'toilets#toilet_data'
+<<<<<<< HEAD
 >>>>>>> 254a0af... Add working pins for map
+=======
+  resources :favorites, only: [:new]
+  get 'toilets/:id/favorite' => 'favorites#new'
+>>>>>>> 1d2b502... Made tags table, working on filters for map
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
