@@ -1,57 +1,27 @@
-
-<% if !@user_input%>
-
-  <script>
+<script>
     var currentLongitude = -73.9712; //default at center manhattan
     var currentLatitude = 40.7831; //default at center manhattan
     navigator.geolocation.getCurrentPosition(function(p){
       currentLatitude = p.coords.latitude;
       currentLongitude = p.coords.longitude;
+      // debugger
     });
+</script>
 
-  </script>
-
-<!-- give search box for user to choose where they want to go -->
-
-<% else %>
-
-<h1>Toilets near <%=@user_input%>: </h1>
-
-<% end %>
+<h1 id="homepage-header"> Helping you take the browns to the superbowl since 1999</h1>
 
 <div id="toilets-index-table" class="row">
 
-  <div id="toilets-index-list" class="small-block-grid-1 large-block-grid-2">
-    <!-- loop to show toilets in area -->
-    <p>Placeholder for list of toilets</p>
-  </div>
 
-  <div id="google-map" class="small-block-grid-1 large-block-grid-2"></div>
+  <div id="google-map" ></div>
 
-<% if @user_input %>
-
-<!-- check to make sure you can call ruby variables inside the javascript call below -->
-
-    <script>
-  function initMap() {
-    var mapDiv = document.getElementById('google-map');
-    var map = new google.maps.Map(mapDiv, {
-          center: {lat: <%=@user_input_latitude%>, lng: <%=@user_input_longitude%>},
-          zoom: 12
-        });
-    })
-  }
-  </script>
-  <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"async defer></script>
-
-<% else %>
 
   <script>
   function initMap() {
     var mapDiv = document.getElementById('google-map');
     var map = new google.maps.Map(mapDiv, {
           center: {lat: 40.7831, lng: -73.9712},
-          zoom: 12
+          zoom: 11
         });
     $.getJSON("/toilet_data").done(function(toilets) {
       for(var i=0; i < 50; i++){
@@ -72,6 +42,10 @@
   </script>
   <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"async defer></script>
 
-<% end %>
+
+  <div id="toilets-index-list" >
+    <%= render @toilets %>
+  </div>
 
 </div>
+
