@@ -43,6 +43,7 @@
         <% @user.reviews.each do |review| %>
           <li class='ind-review'>Review: <%= link_to "#{review.toilet.name}", toilet_path(review.toilet) %></li>
           <li>Rating: <%= review.rating %></li>
+          <li>Date: <%= review.created_at.strftime("%B %d, %Y") %></li>
           <li><%= review.review_text %></li>
         <% end %>
       </ul>
