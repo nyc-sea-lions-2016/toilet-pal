@@ -9,8 +9,10 @@ Rails.application.routes.draw do
   resources :toilets, only: [:index, :show]
   get '/toilets/:id/review' => 'reviews#new'
   get '/toilet_data' => 'toilets#toilet_data'
+  get '/user_search' => 'toilets#user_search'
   resources :favorites, only: [:new]
   get 'toilets/:id/favorite' => 'favorites#new'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

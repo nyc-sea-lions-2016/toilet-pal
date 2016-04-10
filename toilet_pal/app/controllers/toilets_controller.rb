@@ -1,6 +1,6 @@
 class ToiletsController < ApplicationController
   def index
-
+    binding.pry
     @center_manhattan = [40.7831, -73.9712]
 
     # toilets within ten miles (in meters) of central manhattan:
