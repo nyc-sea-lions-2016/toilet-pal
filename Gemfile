@@ -18,6 +18,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 
+
 gem 'jquery-ui-rails'
 
 gem 'jbuilder', '~> 2.0'
@@ -44,7 +45,10 @@ gem 'avatars_for_rails'
 =======
 >>>>>>> 4868d57... who the fuck knows
 
+# pagination gems
 gem 'will_paginate', '~> 3.0.6'
+gem 'kaminari'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
