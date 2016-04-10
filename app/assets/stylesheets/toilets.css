@@ -81,8 +81,9 @@
 .toilet-block {
   display:block;
   float:left;
-  border: black 2px solid;
-  background-color: grey;
+  margin: 10px;
+  padding: 10px;
+  background-color: #C2DAE8;
 }
 
 .top_title {
