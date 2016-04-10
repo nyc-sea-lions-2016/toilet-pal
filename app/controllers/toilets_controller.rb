@@ -21,4 +21,10 @@ class ToiletsController < ApplicationController
     render json: Toilet.all
   end
 
+  def user_search
+    binding.pry
+    @user_input = params[:user][:user_input]
+    render :index
+  end
+
 end
