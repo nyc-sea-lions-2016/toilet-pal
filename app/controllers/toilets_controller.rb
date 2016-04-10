@@ -14,7 +14,12 @@ class ToiletsController < ApplicationController
     @all_toilets = Toilet.all.select do |toilet|
       toilet.distance_to(@search_location[0], @search_location[1]) < 1609
     end
-    @toilets = @all_toilets.sort{|x,y| x.distance_to(@search_location[0], @search_location[1]) <=> y.distance_to(@search_location[0], @search_location[1])}
+
+    # toilets sorted by distance
+    @toilets_by_distance = @all_toilets.sort{|x,y| x.distance_to(@search_location[0], @search_location[1]) <=> y.distance_to(@search_location[0], @search_location[1])}
+
+    # toilets paginated
+    @toilets = @toilets_by_distance.paginate(:page => params[:page], :per_page => 20)
   end
 
 

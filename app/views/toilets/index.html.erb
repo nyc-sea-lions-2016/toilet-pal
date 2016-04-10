@@ -28,6 +28,7 @@
         });
     var icon = "<%= asset_path 'poo.png' %>"
 <<<<<<< HEAD
+<<<<<<< HEAD
     $.getJSON("/filter_data").done(function(toilets) {
 =======
     // var contentString = '<div id="content">'+
@@ -51,20 +52,20 @@
     //   '</div>'+
     //   '</div>';
 >>>>>>> cec1147... Merge before commit
+=======
+>>>>>>> 5f94265... toilets on homepage paginated
 
     $.getJSON("/toilet_data").done(function(toilets) {
 
 
       for(var i=0; i < 850; i++){
-    // var infowindow = new google.maps.InfoWindow({content: contentString});
     var marker = new google.maps.Marker({
           position: {lat: (toilets[i].latitude - 0), lng: (toilets[i].longitude - 0)},
           map: map,
           icon: icon,
           title: toilets[i].name
           });
-    // marker.addListener('click', function() {infowindow.open(map, marker);
-    //     });
+
         }
     })
   }
