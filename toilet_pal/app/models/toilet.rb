@@ -3,8 +3,9 @@ class Toilet < ActiveRecord::Base
 	has_many :favorites
 	has_many :reviewers, through: :reviews, class_name: 'User', foreign_key: 'reviewer_id'
 	has_many :favoriters, through: :favorites
-
-	validates :name, :location, :description, presence: true
+	has_many :tagtoilets
+	has_many :tags, through: :tagtoilets
+	validates :name, :location, presence: true
 
   geocoded_by :full_street_address # can also be an IP address
 
