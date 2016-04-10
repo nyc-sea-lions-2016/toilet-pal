@@ -90,4 +90,15 @@
   border: black 2px solid;
   background-color: grey;
 }
+<<<<<<< HEAD
 >>>>>>> 10619b5... Change links on homepage to blocks
+=======
+
+.top_title {
+  padding-top: 1rem;
+}
+
+.filters {
+  text-align: center;
+}
+>>>>>>> 91ed726... Added filters, working on functionality
