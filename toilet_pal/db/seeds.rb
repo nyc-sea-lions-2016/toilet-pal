@@ -8,11 +8,21 @@
 
 response = HTTParty.get('https://data.cityofnewyork.us/resource/h87e-shkn.json')
 response.each do |item|
-	Toilet.create(
+	toilet = Toilet.new(
 		name: item['name'],
 		location: item['location'],
-		description: item['type']
 	)
+	if toilet.save
+		if Tag.all.any?{|tag| tag.tag == item['type']}
+			tag = Tag.find_by(tag: item['type'])
+			Tagtoilet.create(tag_id: tag.id, toilet_id: toilet.id)
+		else
+			tag = Tag.create(tag: item['type'])
+			Tagtoilet.create(tag_id: tag.id, toilet_id: toilet.id)
+		end
+	end
+
+	puts toilet.id
 end
 
 

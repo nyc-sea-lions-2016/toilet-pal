@@ -24,7 +24,7 @@
           zoom: 11
         });
     $.getJSON("/toilet_data").done(function(toilets) {
-      for(var i=0; i < 50; i++){
+      for(var i=0; i < 850; i++){
           var marker = new google.maps.Marker({
           position: {lat: (toilets[i].latitude - 0), lng: (toilets[i].longitude - 0)},
           map: map,
@@ -41,7 +41,7 @@
   }
   </script>
   <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"async defer></script>
-
+  <div id='filters'>
 
   <div id="toilets-index-list" >
     <%= render @toilets %>
