@@ -50,7 +50,7 @@ Toilet.all.each do |toilet|
     end
   rescue
   end
-  puts toilet.id
+  puts toilet.id.to_s + ' Toilet\'s Latitude: ' + toilet.latitude.to_s
 end
 
 User.create!(username:  "fj",
