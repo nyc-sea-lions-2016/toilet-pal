@@ -25,12 +25,12 @@ class ToiletsController < ApplicationController
   end
 
   def toilet_data
-    case params[:filter]
-    when 'Public'
-      render json: Toilet.where()
-    when 'coffee shop'
-      render json: Toilet.where('tag = ?')
-    render json: Toilet.all
+    # case params[:filter]
+    # when 'Public'
+    #   render json: Toilet.where()
+    # when 'coffee shop'
+    #   render json: Toilet.where('tag = ?')
+    # render json: Toilet.all
   end
 
   def user_search

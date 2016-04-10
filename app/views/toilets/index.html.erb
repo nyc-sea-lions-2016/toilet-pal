@@ -23,7 +23,9 @@
         });
     var icon = "<%= asset_path 'poo.png' %>"
     $.getJSON("/toilet_data").done(function(toilets) {
-  var contentString = '<div id="content">'+
+
+      for(var i=0; i < 850; i++){
+    var contentString = '<div id="content">'+
       '<div id="siteNotice">'+
       '</div>'+
       '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
@@ -46,14 +48,13 @@
 
     var infowindow = new google.maps.InfoWindow({content: contentString});
 
-      for(var i=0; i < 850; i++){
-          var marker = new google.maps.Marker({
+    var marker = new google.maps.Marker({
           position: {lat: (toilets[i].latitude - 0), lng: (toilets[i].longitude - 0)},
           map: map,
           icon: icon,
           title: toilets[i].name
           });
-        marker.addListener('click', function() {infowindow.open(map, marker);
+    marker.addListener('click', function() {infowindow.open(map, marker);
         });
         }
     })
