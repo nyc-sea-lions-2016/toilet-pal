@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :toilets, only: [:index, :show]
   get '/toilets/:id/review' => 'reviews#new'
   get '/toilet_data' => 'toilets#toilet_data'
-  get '/user_search' => 'toilets#user_search'
+  post '/user_search' => 'toilets#user_search'
   resources :favorites, only: [:new]
   get 'toilets/:id/favorite' => 'favorites#new'
 
