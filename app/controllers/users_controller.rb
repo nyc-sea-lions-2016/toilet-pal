@@ -29,7 +29,7 @@ class UsersController < ApplicationController
       flash[:success] = "Welcome to ToiletPal!"
       redirect_to @user
     else
-      flash.now[:danger] = 'Invalid email/password combination'
+      @errors = @user.errors.full_messages
       render 'users/new'
 >>>>>>> 20e2bf4... Add admin to user model
     end
@@ -49,6 +49,7 @@ class UsersController < ApplicationController
       flash[:success] = "Profile updated"
       redirect_to @user
     else
+      @errors = @user.errors.full_messages
       render 'users/edit'
     end
   end
@@ -60,6 +61,7 @@ class UsersController < ApplicationController
   end
 
   private
+
   def user_params
     params.require(:user).permit(:username, :email, :password, :password_confirmation, :first_name, :last_name, :gender, :zip_code)
   end
