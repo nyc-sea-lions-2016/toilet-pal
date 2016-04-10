@@ -5,7 +5,7 @@ class ReviewsController < ApplicationController
 	end
 
 	def create
-		# binding.pry
+
 		@review = Review.new(review_params)
 		if @review.save
 			redirect_to action: 'show', controller:'toilets' , id:params[:review][:toilet_id].to_i
