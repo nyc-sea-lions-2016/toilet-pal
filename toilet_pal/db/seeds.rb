@@ -51,7 +51,7 @@ Toilet.all.each do |toilet|
       puts toilet
       puts response
   end
-  puts toilet.id
+  puts toilet.id.to_s + ' Toilet\'s Latitude: ' + toilet.latitude.to_s
 end
 
 User.create!(username:  "fj",

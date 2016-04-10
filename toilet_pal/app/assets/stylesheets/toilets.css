@@ -88,3 +88,7 @@
   border: black 2px solid;
   background-color: grey;
 }
+
+.filters {
+  text-align: center;
+}
