@@ -3,6 +3,14 @@
   height: 50%;
 }
 
+#google-map-show {
+  width: 500px;
+  height: 400px;
+  background-color: yellow;
+  float: right;
+}
+
+
 #toilets-index-table {
   width: 100%;
   height: 100%;
@@ -23,7 +31,7 @@
 
 
 #toilet_image {
-	float: right;
+
   -webkit-box-shadow: 8px 8px 6px -6px black;
      -moz-box-shadow: 8px 8px 6px -6px black;
           box-shadow: 8px 8px 6px -6px black;
@@ -72,4 +80,7 @@
 
 }
 
+.top_title {
+  padding-top: 1rem;
+}
 

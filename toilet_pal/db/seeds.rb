@@ -8,11 +8,21 @@
 
 response = HTTParty.get('https://data.cityofnewyork.us/resource/h87e-shkn.json')
 response.each do |item|
-	Toilet.create(
+	toilet = Toilet.new(
 		name: item['name'],
 		location: item['location'],
-		description: item['type']
 	)
+	if toilet.save
+		if Tag.all.any?{|tag| tag.tag == item['type']}
+			tag = Tag.find_by(tag: item['type'])
+			Tagtoilet.create(tag_id: tag.id, toilet_id: toilet.id)
+		else
+			tag = Tag.create(tag: item['type'])
+			Tagtoilet.create(tag_id: tag.id, toilet_id: toilet.id)
+		end
+	end
+
+	puts toilet.id
 end
 
 
@@ -20,6 +30,7 @@ Toilet.all.each do |toilet|
     address = toilet.location.gsub(" ", "+") + ",+New+York+City,+NY"
     url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=" + ENV["GOOGLE_MAP_KEY"]
   response = HTTParty.get(url)
+
   begin
     if response["status"] == "OK"
       toilet.zip_code = nil
@@ -75,7 +86,6 @@ end
 		favoriter_id:  User.all.sample.id,
 		toilet_id:  Toilet.all.sample.id
 		})
-
 
 end
 
