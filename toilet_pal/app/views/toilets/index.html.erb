@@ -18,7 +18,7 @@
   <script>
   function initMap() {
     var mapDiv = document.getElementById('google-map');
-      debugger
+      debugger;
     var map = new google.maps.Map(mapDiv, {
           center: {lat: 40.7831, lng: -73.9712},
           zoom: 14
@@ -49,9 +49,19 @@
   </div>
 </div>
 
+<div id='row'>
+  <form action='/toilet_data' method='get'>
+    <div class='filters'>
+      Public<input type='radio' name='filter' value='Public'>
+      Basketball Courts<input type='radio' name='filter' value='Basketball Courts'>
+      Book Store<input type='radio' name='filter' value='Book Store'>
+    </div>
+    <div class='filters'>
+      <input class='primary button' type='submit' value='Show Me The Toilets!'>
+    </div>
+</div>
 
-  <div id='filters'>
-
+<div id='filters'>
   <div id="toilets-index-list" >
     <ul class="small-block-grid-3">
       <%= render @toilets %>
