@@ -6,6 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+
+Tag.create(tag:'Public')
 response = HTTParty.get('https://data.cityofnewyork.us/resource/h87e-shkn.json')
 response.each do |item|
 	toilet = Toilet.new(
@@ -16,14 +18,20 @@ response.each do |item|
 		if Tag.all.any?{|tag| tag.tag == item['type']}
 			tag = Tag.find_by(tag: item['type'])
 			Tagtoilet.create(tag_id: tag.id, toilet_id: toilet.id)
+			pub_tag = Tag.find_by(tag: 'Public')
+			Tagtoilet.create(tag_id: pub_tag.id, toilet_id: toilet.id)
 		else
 			tag = Tag.create(tag: item['type'])
 			Tagtoilet.create(tag_id: tag.id, toilet_id: toilet.id)
+			pub_tag = Tag.find_by(tag: 'Public')
+			Tagtoilet.create(tag_id: pub_tag.id, toilet_id: toilet.id)
 		end
 	end
 
 	puts toilet.id
 end
+
+
 
 
 Toilet.all.each do |toilet|
