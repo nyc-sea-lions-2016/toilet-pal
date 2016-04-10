@@ -1,7 +1,7 @@
 class ToiletsController < ApplicationController
   def index
-    if params.has_key?(:user) && params[:user].has_key?(:user_input)
-      geo_info = Geocoder.search(params[:user][:user_input])
+    if params.has_key?(:user_input)
+      geo_info = Geocoder.search(params[:user_input])
         user_search_lat = geo_info[0].data["geometry"]["location"]["lat"]
         user_search_lon = geo_info[0].data["geometry"]["location"]["lng"]
         @search_location = [user_search_lat,user_search_lon]
@@ -29,7 +29,7 @@ class ToiletsController < ApplicationController
   end
 
   def user_search
-    redirect_to index and return
+    redirect_to action: 'index', controller: 'toilets', user_input: params[:user][:user_input]
   end
 
 end
