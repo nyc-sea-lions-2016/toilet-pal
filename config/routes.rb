@@ -40,6 +40,7 @@ Rails.application.routes.draw do
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> 254a0af... Add working pins for map
 =======
   resources :favorites, only: [:new]
@@ -48,6 +49,9 @@ Rails.application.routes.draw do
 =======
   get '/user_search' => 'toilets#user_search'
 =======
+=======
+  get '/filter_data' => 'toilets#index'
+>>>>>>> 4924051... begin work on new toilet
   post '/user_search' => 'toilets#user_search'
 >>>>>>> ead5dc4... Add user_search route to capture user input on homepage search box
   resources :favorites, only: [:new]
