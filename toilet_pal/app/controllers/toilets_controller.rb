@@ -22,17 +22,36 @@ class ToiletsController < ApplicationController
     @toilets = @toilets_by_distance.paginate(:page => params[:page], :per_page => 20)
   end
 
+  def new
+    @toilet = Toilet.new
+  end
 
   def show
-  	@toilet = Toilet.find_by(id: params[:id])
+    @toilet = Toilet.find_by(id: params[:id])
 
-  	@average_review = Toilet.average_review(@toilet)
+    @average_review = Toilet.average_review(@toilet)
+  end
+
+
+  def create
+    @toilet = Toilet.new(toilet_params)
+    if @toilet.save
+      tags_str = params[:toilet][:tags][:tag]
+      tags_str.split(',').each do |tag_name|
+        tag_name.strip!
+        new_tag = Tag.create(tag: tag_name)
+        Tagtoilet.create(tag_id: new_tag.id,toilet_id: @toilet.id)
+      end
+      toilet_location_info(@toilet)
+      redirect_to action: 'show', controller: 'toilets', id:@toilet.id
+    end
+
   end
 
   def toilet_data
     render json: Toilet.all
   end
-
+ #filters not working just yet
   def filter_data
       case params[:filter][:info]
       when 'Public'
@@ -51,8 +70,30 @@ class ToiletsController < ApplicationController
   def user_search
     redirect_to action: 'index', controller: 'toilets', user_input: params[:user][:user_input]
   end
+private
+
+  def toilet_params
+    params[:toilet].require(:t_info).permit(:name, :location)
+  end
 
 
+  def toilet_location_info(toilet)
+    address = toilet.location.gsub(" ", "+") + ",+New+York+City,+NY"
+    url = "https://maps.googleapis.com/maps/api/geocode/json?address=" + address + "&key=" + ENV["GOOGLE_MAP_KEY"]
+    response = HTTParty.get(url)
+
+    begin
+      if response["status"] == "OK"
+        toilet.zip_code = nil
+        toilet.neighborhood = response["results"][0]["address_components"][1]["long_name"]
+        toilet.sublocality = response["results"][0]["address_components"][2]["long_name"]
+        toilet.latitude = response["results"][0]["geometry"]["location"]["lat"].to_f
+        toilet.longitude = response["results"][0]["geometry"]["location"]["lng"].to_f
+        toilet.save
+      end
+    rescue
+    end
+  end
 
 
 end
