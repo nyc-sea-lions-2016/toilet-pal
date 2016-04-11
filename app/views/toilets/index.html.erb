@@ -14,7 +14,56 @@
 
   <div id="google-map" ></div>
 
+<% if params[:action] == 'filter_data' %>
   <script>
+  function initMap() {
+    var mapDiv = document.getElementById('google-map');
+    var map = new google.maps.Map(mapDiv, {
+          center: {lat: <%= @search_location[0] %>, lng: <%= @search_location[1] %>},
+          zoom: 14
+        });
+    var icon = "<%= asset_path 'poo.png' %>"
+    $.getJSON("/filter_data").done(function(toilets) {
+
+      for(var i=0; i < 850; i++){
+    var contentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Uluru</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>Toilet</b>, also referred to as <b>Ayers Rock</b>, is a large ' +
+      'sandstone rock formation in the southern part of the '+
+      'Northern Territory, central Australia. It lies 335&#160;km (208&#160;mi) '+
+      'south west of the nearest large town, Alice Springs; 450&#160;km '+
+      '(280&#160;mi) by road. Kata Tjuta and Uluru are the two major '+
+      'features of the Uluru - Kata Tjuta National Park. Uluru is '+
+      'sacred to the Pitjantjatjara and Yankunytjatjara, the '+
+      'Aboriginal people of the area. It has many springs, waterholes, '+
+      'rock caves and ancient paintings. Uluru is listed as a World '+
+      'Heritage Site.</p>'+
+      '<p>Attribution: Uluru, <a href="https://en.wikipedia.org/w/index.php?title=Uluru&oldid=297882194">'+
+      'https://en.wikipedia.org/w/index.php?title=Uluru</a> '+
+      '(last visited June 22, 2009).</p>'+
+      '</div>'+
+      '</div>';
+
+    var infowindow = new google.maps.InfoWindow({content: contentString});
+
+    var marker = new google.maps.Marker({
+          position: {lat: (toilets[i].latitude - 0), lng: (toilets[i].longitude - 0)},
+          map: map,
+          icon: icon,
+          title: toilets[i].name
+          });
+    marker.addListener('click', function() {infowindow.open(map, marker);
+        });
+        }
+    })
+  }
+  </script>
+  <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"async defer></script>
+<% else %>
+   <script>
   function initMap() {
     var mapDiv = document.getElementById('google-map');
     var map = new google.maps.Map(mapDiv, {
@@ -61,7 +110,7 @@
   }
   </script>
   <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"async defer></script>
-
+<% end %>
 <div class="row">
   <div class="small-12 columns">
     <%= form_for :user, url: '/user_search' do |f| %>
@@ -72,17 +121,17 @@
   </div>
 </div>
 
-<div id='row'>
+<!-- <div id='row'>
   <form action='/toilet_data' method='get'>
     <div class='filters'>
-      Public<input type='radio' name='filter' value='Public'>
-      Basketball Courts<input type='radio' name='filter' value='Basketball Courts'>
-      Book Store<input type='radio' name='filter' value='Book Store'>
+      Public<input type='radio' name='filter[info]' value='Public'>
+      Basketball Courts<input type='radio' name='filter[info]' value='Basketball Courts'>
+      Book Store<input type='radio' name='filter[info]' value='Book Store'>
     </div>
     <div class='filters'>
       <input class='primary button' type='submit' value='Show Me The Toilets!'>
     </div>
-</div>
+</div> -->
 
 <div id='filters'>
   <div id="toilets-index-list" >
