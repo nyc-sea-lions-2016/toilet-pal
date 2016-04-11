@@ -30,6 +30,7 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       @errors = @user.errors.full_messages
+      flash[:error] = "You did not enter a valid reponse!"
       render 'users/new'
 >>>>>>> 20e2bf4... Add admin to user model
     end
@@ -50,6 +51,7 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       @errors = @user.errors.full_messages
+      flash[:error] = "You did not enter a valid reponse!"
       render 'users/edit'
     end
   end
