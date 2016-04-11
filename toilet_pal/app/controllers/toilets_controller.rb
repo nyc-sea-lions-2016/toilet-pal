@@ -25,9 +25,11 @@ class ToiletsController < ApplicationController
   end
 
   def toilet_data
+    render json: Toilet.all
+  end
 
-    if params[:filter]
-      case params[:filter]
+  def filter_data
+      case params[:filter][:info]
       when 'Public'
         @tag = Tag.find_by(tag: 'Public')
       when 'Basketball Courts'
@@ -38,15 +40,13 @@ class ToiletsController < ApplicationController
 
       @joins = Tagtoilet.where('tag_id = ?', @tag.id)
       @toilets = @joins.map{|join| Toilet.find(join.toilet_id)}
-      render json: @toilets
-    else
-      render json: Toilet.all
-    end
+      @toilets.to_json
   end
 
   def user_search
     redirect_to action: 'index', controller: 'toilets', user_input: params[:user][:user_input]
   end
+
 
 
 
