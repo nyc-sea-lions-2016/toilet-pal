@@ -24,6 +24,7 @@ Rails.application.routes.draw do
   resources :users
   resources :reviews
 <<<<<<< HEAD
+<<<<<<< HEAD
   resources :toilets
   resources :favorites
   get '/toilets/:id/review' => 'reviews#new'
@@ -34,6 +35,9 @@ Rails.application.routes.draw do
 >>>>>>> 48019f4... Made validations for favorites, set up seed file for favorites
 =======
   resources :toilets, only: [:index, :show]
+=======
+  resources :toilets, only: [:index, :show, :new, :create]
+>>>>>>> fbd3521... New toilet page created and working
   get '/toilets/:id/review' => 'reviews#new'
 
   get '/toilet_data' => 'toilets#toilet_data'

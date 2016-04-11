@@ -42,4 +42,6 @@ class Toilet < ActiveRecord::Base
   	rm * c # Resulting distance is in meters
 	end
 
+
+
 end
