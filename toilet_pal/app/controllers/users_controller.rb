@@ -19,6 +19,7 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       @errors = @user.errors.full_messages
+      flash[:error] = "You did not enter a valid reponse!"
       render 'users/new'
     end
   end
@@ -38,6 +39,7 @@ class UsersController < ApplicationController
       redirect_to @user
     else
       @errors = @user.errors.full_messages
+      flash[:error] = "You did not enter a valid reponse!"
       render 'users/edit'
     end
   end
