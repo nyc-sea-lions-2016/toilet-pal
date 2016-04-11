@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   delete 'logout'  => 'sessions#destroy'
   resources :users
   resources :reviews
-  resources :toilets, only: [:index, :show]
+  resources :toilets, only: [:index, :show, :new, :create]
   get '/toilets/:id/review' => 'reviews#new'
 
   get '/toilet_data' => 'toilets#toilet_data'
