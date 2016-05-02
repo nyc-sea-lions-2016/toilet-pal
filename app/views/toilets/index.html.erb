@@ -7,9 +7,7 @@
     });
 </script>
 
-<h1 id="homepage-header"> Making sure your Browns get to the SuperBowl</h1>
-
-<div id="toilets-index-table" class="row">
+<div id="toilets-index-table" >
 
 
   <div id="google-map" ></div>
@@ -65,7 +63,6 @@
           icon: icon,
           title: toilets[i].name
           });
-
         }
     })
   }
@@ -144,10 +141,9 @@
 
 <div id='filters'>
   <div id="toilets-index-list" >
-    <ul class="small-block-grid-3">
+    <ul class="small-block-grid-1">
       <%= render @toilets %>
     </ul>
   </div>
 
 </div>
-
