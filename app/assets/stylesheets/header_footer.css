@@ -4,7 +4,7 @@
 
 .footer {
   margin-top: 1%;
-  background-color: #73B99C;
+  background-color: #2ecc71;
   padding: 2rem 4rem;
   text-align: center;
   color: #fff;
@@ -41,15 +41,15 @@
 }
 
 .title-bar {
-  background: #73B99C;
+  background: #2ecc71;
   padding: 0.9rem; }
 
 .top-bar {
-  background: #73B99C; }
+  background: #2ecc71; }
   .top-bar ul {
-    background: #73B99C; }
+    background: #2ecc71; }
     .top-bar ul li {
-      background: #73B99C; }
+      background: #2ecc71; }
       .top-bar ul li a {
         color: #fff; }
 
