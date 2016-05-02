@@ -4,7 +4,7 @@
 
 .footer {
   margin-top: 1%;
-  background-color: #2ecc71;
+  background-color: #5e0231;
   padding: 2rem 4rem;
   text-align: center;
   color: #fff;
@@ -41,15 +41,15 @@
 }
 
 .title-bar {
-  background: #2ecc71;
+  background: #5e0231;
   padding: 0.9rem; }
 
 .top-bar {
-  background: #2ecc71; }
+  background: #5e0231;}
   .top-bar ul {
-    background: #2ecc71; }
+    background: #5e0231; }
     .top-bar ul li {
-      background: #2ecc71; }
+      background: #5e0231; }
       .top-bar ul li a {
         color: #fff; }
 
@@ -58,3 +58,11 @@
   @media only screen and (max-width: 40em) {
     .menu-text {
       display: none !important; } }
+
+#logo {
+  font-style: italic;
+}
+
+#nav-bar {
+  margin-top: 30px
+}

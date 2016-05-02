@@ -20,7 +20,7 @@
           center: {lat: <%= @search_location[0] %>, lng: <%= @search_location[1] %>},
           zoom: 14
         });
-    var icon = "<%= asset_path 'poo.png' %>"
+    var icon = "<%= asset_path 'toilet-icon.png' %>"
     $.getJSON("/filter_data").done(function(toilets) {
       for(var i=0; i < 850; i++){
     var marker = new google.maps.Marker({
@@ -42,7 +42,7 @@
           center: {lat: <%= @search_location[0] %>, lng: <%= @search_location[1] %>},
           zoom: 14
         });
-    var icon = "<%= asset_path 'poo.png' %>"
+    var icon = "<%= asset_path 'toilet-icon.png' %>"
     $.getJSON("/toilet_data").done(function(toilets) {
 
       for(var i=0; i < 850; i++){
@@ -88,22 +88,10 @@
     <%= form_for :user, url: '/user_search' do |f| %>
       <%= f.text_field :user_input, placeholder: "Where do you want to pee?" %>
 
-      <%= f.submit "Search", class: "primary button" %>
+      <%= f.submit "Show me the toilets", class: "button" %>
     <% end %>
   </div>
 </div>
-
-<!-- <div id='row'>
-  <form action='/toilet_data' method='get'>
-    <div class='filters'>
-      Public<input type='radio' name='filter[info]' value='Public'>
-      Basketball Courts<input type='radio' name='filter[info]' value='Basketball Courts'>
-      Book Store<input type='radio' name='filter[info]' value='Book Store'>
-    </div>
-    <div class='filters'>
-      <input class='primary button' type='submit' value='Show Me The Toilets!'>
-    </div>
-</div> -->
 
 <div id='filters'>
   <div id="toilets-index-list" >
