@@ -1,3 +1,4 @@
+<div class='top-show-page'>
 <div class='row top_title'>
 	<div class='large-2 columns'>
 		<% if @toilet.favorites.any?{|fav| fav.favoriter_id == session[:user_id]} %>
@@ -7,17 +8,18 @@
 		<% end %>
 	</div>
 	<div class='large-10 columns'>
-		<h1><%= @toilet.name %> Toilet's</h1>
+		<h1><%= @toilet.name %></h1>
 	</div>
 </div>
-<div class='row'>
+<div class='row' id='full-toilet-details'>
 	<div class='large-5 columns'>
+		<h4>DETAILS:</h4>
 		<p>Location: <%= @toilet.location %></p>
 		<p>Neighborhood: <%= @toilet.neighborhood %></p>
 		<p>Borough: <%= @toilet.sublocality %></p>
-		<p>Tags: <%= tags(@toilet) %>
+		<p>Tags: <%= tags(@toilet) %></p>
 		<p>Average Review: <%= @average_review %></p>
-		<p><a href='/toilets/<%= @toilet.id %>/review'>Click</a> to review your Toilet experience</p>
+		<p><a href='/toilets/<%= @toilet.id %>/review', class='button'>Review This Toilet</a></p>
 	</div>
 	<div id="google-map-show" ></div>
 	 <script>
@@ -37,18 +39,21 @@
   <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"async defer></script>
 	</div>
 </div>
+</div>
 
 
-
+<div class='toilet-review-area'>
 <% @toilet.reviews.each do |review| %>
 	<div class='review_wrapper'>
 		<div class='reviewer_info toilet_reviews'>
-			<a href='/users/<%= review.reviewer_id %>'><%= review.reviewer.username %></a>
-			<p>Rating: <%= review.rating %></p>
-
+			<% review.rating.times do %>
+				<%= image_tag "fav-star.jpg", class:'fav-star-on-review' %>
+			<% end %>
 		</div>
 		<div class='review_text toilet_reviews'>
 			<%= review.review_text[2..-1] %>
+			<a href='/users/<%= review.reviewer_id %>'><%= '--' + review.reviewer.username %></a>
 		</div>
 	</div>
 <% end %>
+</div>
