@@ -29,10 +29,10 @@
 </div><br>
 <div>
   <div class='side-nav favorites-user'>
-    <strong><%= @user.username.capitalize %>'s Favorites:</strong>
+    <h4><%= @user.username.capitalize %>'s Favorites:</h4>
     <ul>
       <% @user.favorites.each do |favorite| %>
-        <li class='active'><%= link_to "#{favorite.toilet.name}", toilet_path(favorite.toilet)  %></li>
+        <li class='active favorite-toilet-link'><%= link_to "#{favorite.toilet.name}", toilet_path(favorite.toilet)%></li>
       <% end %>
     </ul>
   </div>
