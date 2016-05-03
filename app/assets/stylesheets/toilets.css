@@ -105,4 +105,15 @@
 .filters {
   text-align: center;
 }
+<<<<<<< HEAD
 >>>>>>> 91ed726... Added filters, working on functionality
+=======
+
+#location-submit-button {
+  width: 100%;
+}
+
+#location-submission-box {
+  margin: 0;
+}
+>>>>>>> 8acaf8d... Delete SCSS files

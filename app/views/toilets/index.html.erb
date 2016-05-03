@@ -121,12 +121,11 @@
   </script>
   <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"async defer></script>
 <% end %>
-<div class="row">
+<div >
   <div class="small-12 columns">
     <%= form_for :user, url: '/user_search' do |f| %>
-      <%= f.text_field :user_input, placeholder: "Where do you want to pee?" %>
-
-      <%= f.submit "Show me the toilets", class: "button" %>
+      <%= f.text_field :user_input, placeholder: "Where do you want to pee?", id: "location-submission-box" %>
+      <%= f.submit "SHOW ME TOILETS IN MY AREA", class: "button", id: "location-submit-button" %>
     <% end %>
   </div>
 </div>

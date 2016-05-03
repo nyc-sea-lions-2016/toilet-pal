@@ -12,36 +12,36 @@
 <div class="top-bar" id="main-menu">
   <div class="top-bar-title">
     <ul class="dropdown menu" data-dropdown-menu>
-      <li id="logo-image" class="menu-text"><%= image_tag "need-to-pee.png", size: "100"%></li>
+      <li id="logo-image" class="menu-text"><%= image_tag "need-to-pee-white.png", size: "70"%></li>
 
     </ul>
   </div>
   <div class="top-bar-right">
-    <ul class="menu button-group" id='nav-bar' data-responsive-menu="drilldown medium-dropdown">
+    <ul class="menu" id='nav-bar' data-responsive-menu="drilldown medium-dropdown">
       <% if logged_in? && current_user.admin? %>
         <li class='button'>
-          <%= link_to 'Admin', users_path %>
+          <%= link_to 'ADMIN', users_path %>
         </li>
       <% end %>
-      <li class='button'>
-        <%= link_to 'Home', root_path %>
-      </li>
+        <li class='button'>
+          <%= link_to 'HOME', root_path %>
+        </li>
       <% if logged_in? %>
         <li class='button'>
-          <%= link_to 'Profile', current_user %>
+          <%= link_to 'PROFILE', current_user %>
         </li>
         <li class='button'>
-          <%= link_to "Settings", edit_user_path(current_user) %>
+          <%= link_to "SETTINGS", edit_user_path(current_user) %>
         </li>
         <li class='button'>
-          <%= link_to "Log out", logout_path, method: :delete %>
+          <%= link_to "LOGOUT", logout_path, method: :delete %>
         </li>
       <% else %>
         <li class='button'>
-          <%= link_to 'New User', new_user_path %>
+          <%= link_to 'REGISTER', new_user_path %>
         </li>
         <li class='button'>
-          <%= link_to 'Login', login_path %>
+          <%= link_to 'LOGIN', login_path %>
         </li>
       <% end %>
     </ul>
