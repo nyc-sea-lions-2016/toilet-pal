@@ -76,7 +76,6 @@
   -moz-box-shadow:    3px 3px 5px 6px #ccc;
   -webkit-box-shadow: 3px 3px 5px 6px #ccc;
   box-shadow:         3px 3px 5px 6px #ccc;
-
 }
 
 <<<<<<< HEAD
@@ -116,4 +115,11 @@
 #location-submission-box {
   margin: 0;
 }
+<<<<<<< HEAD
 >>>>>>> 8acaf8d... Delete SCSS files
+=======
+
+#toilet-name {
+  text-decoration: 'none';
+}
+>>>>>>> 7906a1b... Update hover color of homepage buttons
