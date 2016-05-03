@@ -20,7 +20,6 @@
   text-align: center;
 }
 
-
 #toilets-index-list {
   display:inline-block;
   height: 50%;
@@ -36,18 +35,17 @@
           box-shadow: 8px 8px 6px -6px black;
 }
 
-
 .toilet_reviews {
 	text-align: center;
-/*	width: 50%;*/
 	margin: auto;
   margin-top: 2%;
-
 }
 
 .reviewer_info {
-	background-color: rgb(193,245,239);
+	background-color: #856046;
   border: gray solid 1px;
+  min-height: 60px;
+  padding: 5px
 }
 
 .reviews_new_form {
@@ -65,17 +63,14 @@
 
 .review_text {
   margin-top: -1rem;
-  background-color: rgb(208,248,239);
+  background-color: #fff;
   border: gray solid 1px;
-
+  padding: 5px;
 }
 
 .review_wrapper {
   margin: auto;
   width: 50%;
-  -moz-box-shadow:    3px 3px 5px 6px #ccc;
-  -webkit-box-shadow: 3px 3px 5px 6px #ccc;
-  box-shadow:         3px 3px 5px 6px #ccc;
 }
 
 <<<<<<< HEAD
@@ -122,4 +117,26 @@
 #toilet-name {
   text-decoration: 'none';
 }
+<<<<<<< HEAD
 >>>>>>> 7906a1b... Update hover color of homepage buttons
+=======
+
+#full-toilet-details {
+  padding: 20px;
+}
+
+.top-show-page {
+  background-color: #dbc3d0
+}
+
+.toilet-review-area {
+  background-color: #c7a693;
+  padding: 20px;
+  margin-bottom: -15px
+}
+
+.fav-star-on-review {
+  height: 30px;
+  width: 30px
+}
+>>>>>>> 3e20e6e... update css on toilet show page
