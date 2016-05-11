@@ -32,7 +32,6 @@ class ToiletsController < ApplicationController
     @average_review = Toilet.average_review(@toilet)
   end
 
-
   def create
     @toilet = Toilet.new(toilet_params)
     if @toilet.save
@@ -49,25 +48,11 @@ class ToiletsController < ApplicationController
   end
 
   def toilet_data
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-    # case params[:filter]
-    # when 'Public'
-    #   render json: Toilet.where()
-    # when 'coffee shop'
-    #   render json: Toilet.where('tag = ?')
-    # render json: Toilet.all
-=======
-    if params[:filter]
-      case params[:filter]
-=======
     render json: Toilet.all
   end
  #filters not working just yet
   def filter_data
       case params[:filter][:info]
->>>>>>> 4924051... begin work on new toilet
       when 'Public'
         @tag = Tag.find_by(tag: 'Public')
       when 'Basketball Courts'
@@ -78,35 +63,7 @@ class ToiletsController < ApplicationController
 
       @joins = Tagtoilet.where('tag_id = ?', @tag.id)
       @toilets = @joins.map{|join| Toilet.find(join.toilet_id)}
-<<<<<<< HEAD
-      render json: @toilets
-    else
-      render json: Toilet.all
-    end
-
->>>>>>> 91ed726... Added filters, working on functionality
-=======
-
-    # if params[:filter]
-    #   case params[:filter]
-    #   when 'Public'
-    #     @tag = Tag.find_by(tag: 'Public')
-    #   when 'Basketball Courts'
-    #     @tag = Tag.find_by(tag: 'Basketball Courts')
-    #   when 'Book Store'
-    #     @tag = Tag.find_by(tag: 'Book Store')
-    #   end
-
-    #   @joins = Tagtoilet.where('tag_id = ?', @tag.id)
-    #   @toilets = @joins.map{|join| Toilet.find(join.toilet_id)}
-    #   render json: @toilets
-    # else
-    #   render json: Toilet.all
-    # end
->>>>>>> a4959e2... adjust error handling
-=======
       @toilets.to_json
->>>>>>> 4924051... begin work on new toilet
   end
 
   def user_search

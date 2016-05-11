@@ -1,67 +1,19 @@
 Rails.application.routes.draw do
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-  root 'welcome#index'
-
-  get 'user/new'
-  get 'users/new'
-  
-  resources :toilets
-=======
-=======
   root 'toilets#index'
->>>>>>> 8e4f86e... Map of toilets is homepage
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
-<<<<<<< HEAD
-  get 'toilets/index'
-
-  resources :users
->>>>>>> e938c9b... Add user authentication with nav bar options
-=======
   resources :users
   resources :reviews
-<<<<<<< HEAD
-<<<<<<< HEAD
-  resources :toilets
-  resources :favorites
-  get '/toilets/:id/review' => 'reviews#new'
-<<<<<<< HEAD
->>>>>>> 8c5549a... Finish adding reviews to toilet show page, needs error handling still
-=======
-  get 'toilets/:id/favorite' => 'favorites#new'
->>>>>>> 48019f4... Made validations for favorites, set up seed file for favorites
-=======
-  resources :toilets, only: [:index, :show]
-=======
   resources :toilets, only: [:index, :show, :new, :create]
->>>>>>> fbd3521... New toilet page created and working
   get '/toilets/:id/review' => 'reviews#new'
-
   get '/toilet_data' => 'toilets#toilet_data'
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 254a0af... Add working pins for map
-=======
-  resources :favorites, only: [:new]
-  get 'toilets/:id/favorite' => 'favorites#new'
->>>>>>> 1d2b502... Made tags table, working on filters for map
-=======
-  get '/user_search' => 'toilets#user_search'
-=======
-=======
   get '/filter_data' => 'toilets#index'
->>>>>>> 4924051... begin work on new toilet
   post '/user_search' => 'toilets#user_search'
->>>>>>> ead5dc4... Add user_search route to capture user input on homepage search box
   resources :favorites, only: [:new]
   get 'toilets/:id/favorite' => 'favorites#new'
 
->>>>>>> 3803099... Add search box on homepage for users to revise map are
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -32,20 +32,7 @@ gem 'geocoder'
 gem'httparty'
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
-<<<<<<< HEAD
-<<<<<<< HEAD
-# avatars for users: avatars_for_rails:install user
-=======
-
-=======
 gem 'faker'
-<<<<<<< HEAD
->>>>>>> e0b4552... css on toilet show page, updated seed file
-# avatars_for_rails:install user
->>>>>>> d4e4875... add users controller
-gem 'avatars_for_rails'
-=======
->>>>>>> 4868d57... who the fuck knows
 
 # pagination gems
 gem 'will_paginate', '~> 3.0.6'
@@ -69,4 +56,3 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 end
-

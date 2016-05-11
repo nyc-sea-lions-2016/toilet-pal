@@ -41,26 +41,8 @@ GEM
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     builder (3.2.2)
-<<<<<<< HEAD
-    byebug (8.2.3)
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-    climate_control (0.0.3)
-      activesupport (>= 3.0)
-    cocaine (0.5.8)
-      climate_control (>= 0.0.3, < 1.0)
->>>>>>> d4e4875... add users controller
-=======
     byebug (8.2.4)
->>>>>>> 4868d57... who the fuck knows
     coderay (1.1.1)
-=======
-    climate_control (0.0.3)
-      activesupport (>= 3.0)
-    cocaine (0.5.8)
-      climate_control (>= 0.0.3, < 1.0)
->>>>>>> be3045e... Include gems for bcrypt and avatar - create user model and migration with validations
     coffee-rails (4.1.1)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0, < 5.1.x)
