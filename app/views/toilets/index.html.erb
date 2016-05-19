@@ -43,27 +43,33 @@
           zoom: 14
         });
     var icon = "<%= asset_path 'toilet-icon.png' %>"
+    var infoWindows = []
+
     $.getJSON("/toilet_data").done(function(toilets) {
       console.log(toilets[0])
       for(var i=0; i < toilets.length; i++){
         var contentString =
         '<h1 id="firstHeading" class="firstHeading">'+toilets[i].name+'</h1>'+
         '<div id="bodyContent"><p>'+ toilets[i].location +'</p>'+
-        '<p><a class="button"><i class="fi-magnifying-glass"></i> Details </a> <a class="button"><i class="fi-pencil"></i> Review </a> <a class="button"><i class="fi-map"></i> Directions </a></p>'+
-        '</div>';
+        '<p><a class="button"><i class="fi-magnifying-glass"></i> Details </a> <a class="button"><i class="fi-pencil"></i> Review </a> <a class="button"><i class="fi-map"></i> Directions </a></p></div>';
 
-      var infowindow = new google.maps.InfoWindow({content: contentString});
+        var infowindow = new google.maps.InfoWindow({content: contentString});
 
-      var marker = new google.maps.Marker({
+        infoWindows.push(infowindow);
+
+        var marker = new google.maps.Marker({
             position: {lat: (toilets[i].latitude - 0), lng: (toilets[i].longitude - 0)},
             map: map,
             icon: icon,
-            title: toilets[i].name
+            title: toilets[i].name,
+            infoWindowIndex: i
             });
-      marker.addListener('click', function() {infowindow.open(map, marker);
-          });
+        marker.addListener('click', function(event){
+          infoWindows[this.infoWindowIndex].open(map,this);
           }
-      })
+        );
+      }
+    })
   }
   </script>
   <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"async defer></script>
