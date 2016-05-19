@@ -14,17 +14,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-<<<<<<< HEAD
-      found_user = User.find_by(username: params[:user][:username])
-      if found_user && found_user.authenticate(params[:user][:password])
-        session[:user_id] = found_user.id
-        redirect_to @user
-      else
-        # erb :'/sessions/new'
-      end
-    else
-      @errors = @user.errors.full_messages
-=======
       log_in @user
       flash[:success] = "Welcome to ToiletPal!"
       redirect_to @user
@@ -32,7 +21,6 @@ class UsersController < ApplicationController
       @errors = @user.errors.full_messages
       flash[:error] = "You did not enter a valid reponse!"
       render 'users/new'
->>>>>>> 20e2bf4... Add admin to user model
     end
   end
 
