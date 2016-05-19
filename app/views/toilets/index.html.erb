@@ -51,7 +51,7 @@
         var contentString =
         '<h3>'+toilets[i].name+'</h3>'+
         '<div id="bodyContent"><p>Location: '+ toilets[i].location + '</p>'+
-        '<p><a class="button"><i class="fi-magnifying-glass"></i> Details </a> <a class="button"><i class="fi-pencil"></i> Review </a> <a class="button"><i class="fi-map"></i> Directions </a></p></div>';
+        '<p><a href="/toilets/'+ toilets[i].id +'" class="button"><i class="fi-magnifying-glass"></i> Details </a> <a class="button"><i class="fi-pencil"></i> Review </a> <a class="button"><i class="fi-map"></i> Directions </a></p></div>';
 
         var infowindow = new google.maps.InfoWindow({content: contentString});
 
