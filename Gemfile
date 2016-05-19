@@ -34,6 +34,14 @@ gem'httparty'
 gem 'bcrypt', '~> 3.1.7'
 gem 'faker'
 
+# use devise omniauth as login methods (facebook/twitter/google)
+gem 'therubyracer'
+gem 'devise'
+gem 'omniauth'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem 'omniauth-google-oauth2'
+
 # pagination gems
 gem 'will_paginate', '~> 3.0.6'
 gem 'kaminari'
