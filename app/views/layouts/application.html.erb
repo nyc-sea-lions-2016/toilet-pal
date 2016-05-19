@@ -19,17 +19,9 @@
   <div class="top-bar-right">
     <ul class="menu" id='nav-bar' data-responsive-menu="drilldown medium-dropdown">
       <% if logged_in? %>
-        <%= render "loggedin_nav" %>
+        <%= render "layouts/loggedin_nav" %>
       <% else %>
-        <li class='button'>
-          <%= link_to 'HOME', root_path %>
-        </li>
-        <li class='button'>
-          <%= link_to 'REGISTER', new_user_path %>
-        </li>
-        <li class='button'>
-          <%= link_to 'LOGIN', login_path %>
-        </li>
+        <%= render "layouts/loggedout_nav"%>
       <% end %>
     </ul>
   </div>
