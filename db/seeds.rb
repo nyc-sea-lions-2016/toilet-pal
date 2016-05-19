@@ -51,6 +51,10 @@ Toilet.all.each do |toilet|
   rescue
   end
   puts toilet.id.to_s + ' Toilet\'s Latitude: ' + toilet.latitude.to_s
+  if toilet.latitude = nil || toilet.longitude = nil
+    toilet.destroy
+    puts "toilet destroyed"
+  end
 end
 
 User.create!(username:  "fj",
@@ -96,4 +100,3 @@ end
     })
 
 end
-
