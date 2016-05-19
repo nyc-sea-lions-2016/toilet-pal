@@ -18,25 +18,12 @@
   </div>
   <div class="top-bar-right">
     <ul class="menu" id='nav-bar' data-responsive-menu="drilldown medium-dropdown">
-      <% if logged_in? && current_user.admin? %>
-        <li class='button'>
-          <%= link_to 'ADMIN', users_path %>
-        </li>
-      <% end %>
+      <% if logged_in? %>
+        <%= render "loggedin_nav" %>
+      <% else %>
         <li class='button'>
           <%= link_to 'HOME', root_path %>
         </li>
-      <% if logged_in? %>
-        <li class='button'>
-          <%= link_to 'PROFILE', current_user %>
-        </li>
-        <li class='button'>
-          <%= link_to "SETTINGS", edit_user_path(current_user) %>
-        </li>
-        <li class='button'>
-          <%= link_to "LOGOUT", logout_path, method: :delete %>
-        </li>
-      <% else %>
         <li class='button'>
           <%= link_to 'REGISTER', new_user_path %>
         </li>
