@@ -1,15 +1,41 @@
 class User < ActiveRecord::Base
-  before_save { self.email = email.downcase }
-
-  has_secure_password
-
   has_many :favorites, foreign_key: 'favoriter_id'
   has_many :favorite_toilets, through: :favorites, source: 'toilets'
   has_many :reviews, foreign_key: 'reviewer_id'
   has_many :reviewed_toilets, through: :reviews, source: 'toilets'
 
-  validates :username, {presence: true, uniqueness: true, length: { maximum: 50 }}
-  validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
-  validates :email, :first_name, :last_name, :zip_code, :gender, {presence: true}
-  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\Z/i
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :trackable, :validatable,
+         :omniauthable, :omniauth_providers => [:facebook, :twitter, :google_oauth2]
+
+  def self.from_omniauth(auth)
+      where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+        user.provider = auth.provider
+        user.uid = auth.uid
+        user.email = auth.info.email
+        user.password = Devise.friendly_token[0,20]
+      end
+  end
+
+  def self.find_for_google_oauth2(access_token, signed_in_resource=nil)
+      data = access_token.info
+      user = User.where(:provider => access_token.provider, :uid => access_token.uid ).first
+      if user
+        return user
+      else
+        registered_user = User.where(:email => access_token.info.email).first
+        if registered_user
+          return registered_user
+        else
+          user = User.create(username: data["name"],
+            provider:access_token.provider,
+            email: data["email"],
+            uid: access_token.uid ,
+            password: Devise.friendly_token[0,20],
+          )
+        end
+     end
+  end
 end
