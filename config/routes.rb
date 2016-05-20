@@ -14,5 +14,4 @@ Rails.application.routes.draw do
   resources :favorites, only: [:new]
   get 'toilets/:id/favorite' => 'favorites#new'
 
-
 end

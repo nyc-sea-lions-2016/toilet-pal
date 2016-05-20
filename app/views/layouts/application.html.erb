@@ -1,85 +1,65 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Toilet Pal</title>
-  <%= stylesheet_link_tag    'application', media: 'all' %>
-  <%= javascript_include_tag 'application' %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
 
-<div class="top-bar" id="main-menu">
-  <div class="top-bar-title">
-    <ul class="dropdown menu" data-dropdown-menu>
-      <li id="logo-image" class="menu-text"><%= image_tag "need-to-pee-white.png", size: "70"%></li>
+  <body>
 
-    </ul>
-  </div>
-  <div class="top-bar-right">
-    <ul class="menu" id='nav-bar' data-responsive-menu="drilldown medium-dropdown">
-      <% if logged_in? && current_user.admin? %>
-        <li class='button'>
-          <%= link_to 'ADMIN', users_path %>
-        </li>
+    <div class="top-bar" id="main-menu">
+      <div class="top-bar-title">
+        <ul class="dropdown menu" data-dropdown-menu>
+          <li id="logo-image" class="menu-text"><%= image_tag "need-to-pee-white.png", size: "70"%></li>
+        </ul>
+      </div>
+      <div class="top-bar-right">
+        <ul class="menu" id='nav-bar' data-responsive-menu="drilldown medium-dropdown">
+          <% if logged_in? %>
+            <%= render "layouts/loggedin_nav" %>
+          <% else %>
+            <%= render "layouts/loggedout_nav"%>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class='container'>
+      <% flash.each do |message_type, message| %>
+        <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
-        <li class='button'>
-          <%= link_to 'HOME', root_path %>
-        </li>
-      <% if logged_in? %>
-        <li class='button'>
-          <%= link_to 'PROFILE', current_user %>
-        </li>
-        <li class='button'>
-          <%= link_to "SETTINGS", edit_user_path(current_user) %>
-        </li>
-        <li class='button'>
-          <%= link_to "LOGOUT", logout_path, method: :delete %>
-        </li>
-      <% else %>
-        <li class='button'>
-          <%= link_to 'REGISTER', new_user_registration_path %>
-        </li>
-        <li class='button'>
-          <%= link_to 'LOGIN', new_user_session_path %>
-        </li>
-      <% end %>
-    </ul>
-  </div>
-</div>
-<div class='container'>
-  <% flash.each do |message_type, message| %>
-    <div class="alert alert-<%= message_type %>"><%= message %></div>
-    <% end %>
-</div>
-
-<%= yield %>
-
-
-<footer class="footer">
-  <div class="row full-width">
-    <div class="small-12 medium-3 large-4 columns">
-      <h4>What is Toilet Pal?</h4>
-      <p>ToiletPal is a resource for finding public toilets in New York City</p>
     </div>
-    <div class="small-12 medium-3 large-4 columns">
-      <h4>Work With Us</h4>
-      <ul class="footer-links">
-        <li><a href="#">Alyssa</a></li>
-        <li><a href="#">John</a></li>
-        <li><a href="#">FJ</a></li>
-      <ul>
-    </div>
-    <div class="small-12 medium-3 large-4 columns">
-      <h4>Follow Us</h4>
-      <ul class="footer-links">
-        <li><a href="#">Facebook</a></li>
-        <li><a href="#">Twitter</a></li>
-        <li><a href="#">Instagram</a></li>
-      <ul>
-    </div>
-  </div>
-</footer>
 
-</body>
+    <%= yield %>
+
+    <footer class="footer">
+      <div class="row full-width">
+        <div class="small-12 medium-3 large-4 columns">
+          <h4>What is Toilet Pal?</h4>
+          <p>ToiletPal is a resource for finding public toilets in New York City</p>
+        </div>
+        <div class="small-12 medium-3 large-4 columns">
+          <h4>Work With Us</h4>
+          <ul class="footer-links">
+            <li><a href="#">Alyssa</a></li>
+            <li><a href="#">John</a></li>
+            <li><a href="#">FJ</a></li>
+          <ul>
+        </div>
+        <div class="small-12 medium-3 large-4 columns">
+          <h4>Follow Us</h4>
+          <ul class="footer-links">
+            <li><a href="#">Facebook</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Instagram</a></li>
+          <ul>
+        </div>
+      </div>
+    </footer>
+
+  </body>
 </html>
