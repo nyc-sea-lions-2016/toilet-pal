@@ -1,14 +1,9 @@
 #Lookie Loo
 
-[Live][live]
-[live]: http://www.cheffix.com
+[blog][blog]
+[blog]: http://www.alyssaransbury.com/blog/lookieloo.html
 
 Lookie Loo is a Ruby on Rails web application that maps public toilets in NYC.
-
-## Design Docs
-[Schema][schema]
-
-[schema]: ./docs/schema.md
 
 ## Features
 
