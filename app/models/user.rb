@@ -3,39 +3,39 @@ class User < ActiveRecord::Base
   has_many :favorite_toilets, through: :favorites, source: 'toilets'
   has_many :reviews, foreign_key: 'reviewer_id'
   has_many :reviewed_toilets, through: :reviews, source: 'toilets'
+  has_many :identities
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,
+         :recoverable, :rememberable, :trackable,
          :omniauthable, :omniauth_providers => [:facebook, :twitter, :google_oauth2]
 
-  def self.from_omniauth(auth)
-      where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-        user.provider = auth.provider
-        user.uid = auth.uid
-        user.email = auth.info.email
-        user.password = Devise.friendly_token[0,20]
-      end
+  def twitter
+    identities.where( :provider => "twitter" ).first
   end
 
-  def self.find_for_google_oauth2(access_token, signed_in_resource=nil)
-      data = access_token.info
-      user = User.where(:provider => access_token.provider, :uid => access_token.uid ).first
-      if user
-        return user
-      else
-        registered_user = User.where(:email => access_token.info.email).first
-        if registered_user
-          return registered_user
-        else
-          user = User.create(username: data["name"],
-            provider:access_token.provider,
-            email: data["email"],
-            uid: access_token.uid ,
-            password: Devise.friendly_token[0,20],
-          )
-        end
-     end
+  def twitter_client
+    @twitter_client ||= Twitter.client( access_token: twitter.accesstoken )
+  end
+
+  def facebook
+    identities.where( :provider => "facebook" ).first
+  end
+
+  def facebook_client
+    @facebook_client ||= Facebook.client( access_token: facebook.accesstoken )
+  end
+
+  def google_oauth2
+    identities.where( :provider => "google_oauth2" ).first
+  end
+
+  def google_oauth2_client
+    if !@google_oauth2_client
+      @google_oauth2_client = Google::APIClient.new(:application_name => 'HappySeed App', :application_version => "1.0.0" )
+      @google_oauth2_client.authorization.update_token!({:access_token => google_oauth2.accesstoken, :refresh_token => google_oauth2.refreshtoken})
+    end
+    @google_oauth2_client
   end
 end
