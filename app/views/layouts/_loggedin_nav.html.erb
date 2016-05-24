@@ -1,4 +1,4 @@
-<% if current_user.admin? %>
+<% if current_user %>
   <li class='button'>
     <%= link_to 'ADMIN', users_path %>
   </li>
@@ -7,7 +7,7 @@
     <%= link_to 'HOME', root_path %>
   </li>
   <li class='button'>
-    <%= link_to 'PROFILE', current_user %>
+    <%= link_to 'PROFILE', user_path(current_user) %>
   </li>
   <li class='button'>
     <%= link_to "SETTINGS", edit_user_path(current_user) %>
