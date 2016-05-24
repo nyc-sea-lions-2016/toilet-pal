@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+	before_action :authenticate_user!, only: [:create, :edit, :update]
 
 	def new
 		@toilet = Toilet.find(params[:id])
