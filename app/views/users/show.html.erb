@@ -1,35 +1,27 @@
 <div>
   <div class='user-about'>
-    <h4>
-      <%= gravatar_for @user %>
-      <strong>User:</strong>
-      <%= @user.username %>
-    </h4>
-
-    <p>
-      <strong>Email:</strong>
-      <%= @user.email %>
-    </p>
-
-    <p>
-      <strong>Name:</strong>
-      <%= @user.first_name %> <%= @user.last_name %>
-    </p>
-
-    <p>
-      <strong>Zip:</strong>
-      <%= @user.zip_code %>
-    </p>
-
-    <p>
-      <strong>Gender:</strong>
-      <%= @user.gender %>
-    </p>
+    <% if @user.google_oauth2 %>
+      <h4>
+        <%= image_tag(@user.google_oauth2.image) %>
+        <strong>User:</strong>
+        <%= @user.google_oauth2.name %>
+      </h4>
+    <% else %>
+      <h4>
+        <%= image_tag(@user.facebook.image) %>
+        <strong>User:</strong>
+        <%= @user.facebook.name %>
+      </h4>
+    <% end %>
   </div>
 </div><br>
 <div>
   <div class='side-nav favorites-user'>
-    <h4><%= @user.username.capitalize %>'s Favorites:</h4>
+    <% if @user.google_oauth2 %>
+      <h4><%= @user.google_oauth2.name %>'s Favorites:</h4>
+    <% else %>
+      <h4><%= @user.facebook.name %>'s Favorites:</h4>
+    <% end %>
     <ul>
       <% @user.favorites.each do |favorite| %>
         <li class='active favorite-toilet-link'><%= link_to "#{favorite.toilet.name}", toilet_path(favorite.toilet)%></li>
@@ -38,7 +30,11 @@
   </div>
   <div class='reviews-user'>
     <p>
-      <h4><%= @user.username.capitalize %>'s Reviews:</h4>
+      <% if @user.google_oauth2 %>
+        <h4><%= @user.google_oauth2.name %>'s Reviews:</h4>
+      <% else %>
+        <h4><%= @user.facebook.name %>'s Reviews:</h4>
+      <% end %>
       <ul>
         <% @user.reviews.each do |review| %>
           <li class='ind-review'>Toilet: <%= link_to "#{review.toilet.name}", toilet_path(review.toilet) %></li>
