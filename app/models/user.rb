@@ -9,15 +9,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable,
-         :omniauthable, :omniauth_providers => [:facebook, :twitter, :google_oauth2]
-
-  def twitter
-    identities.where( :provider => "twitter" ).first
-  end
-
-  def twitter_client
-    @twitter_client ||= Twitter.client( access_token: twitter.accesstoken )
-  end
+         :omniauthable, :omniauth_providers => [:facebook, :google_oauth2]
 
   def facebook
     identities.where( :provider => "facebook" ).first
