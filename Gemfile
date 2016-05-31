@@ -39,7 +39,7 @@ gem'httparty'
 gem 'bcrypt', '~> 3.1.7'
 gem 'faker'
 
-# use devise omniauth as login methods (facebook/twitter/google)
+# use devise omniauth as login methods (facebook/google)
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
