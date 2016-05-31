@@ -14,9 +14,9 @@
         <%= image_tag(user.facebook.image) %>
         <%= link_to user.facebook.name, user%>
       <% end %>
-      <% if current_user %>
-      <%= link_to "delete", user, method: :delete,
-                                  data: { confirm: "You sure?" } %>
+      <% if current_user.admin? %>
+        <%= link_to "delete", user, method: :delete,
+                                    data: { confirm: "You sure?" } %>
       <% end %>
     </li>
   <% end %>

@@ -1,4 +1,4 @@
-<% if current_user %>
+<% if current_user.admin? %>
   <li class='button'>
     <%= link_to 'ADMIN', users_path %>
   </li>
