@@ -43,8 +43,6 @@ gem 'faker'
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
-gem 'omniauth-twitter'
-gem 'twitter'
 gem 'omniauth-google-oauth2'
 gem 'google-api-client'
 
