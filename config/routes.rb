@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   devise_for :users, class_name: 'FormUser', :controllers => { :omniauth_callbacks => "callbacks", registrations: 'registrations' }
   root 'toilets#index'
-  resources :users, only: [:index, :show, :edit]
+  resources :users, only: [:index, :show]
   resources :reviews
   resources :toilets, only: [:index, :show, :new, :create]
   get '/toilets/:id/review' => 'reviews#new'

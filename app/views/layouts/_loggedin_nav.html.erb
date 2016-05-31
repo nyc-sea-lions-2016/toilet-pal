@@ -10,8 +10,5 @@
     <%= link_to 'PROFILE', user_path(current_user) %>
   </li>
   <li class='button'>
-    <%= link_to "SETTINGS", edit_user_path(current_user) %>
-  </li>
-  <li class='button'>
     <%= link_to "LOGOUT", destroy_user_session_path, method: :delete %>
   </li>
