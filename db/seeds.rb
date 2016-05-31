@@ -48,46 +48,22 @@ Toilet.all.each do |toilet|
   end
 end
 
-User.create!(username:  "fj",
-             email: "example@railstutorial.org",
-             password:              "foobar",
-             password_confirmation: "foobar",
-             first_name: Faker::Name.first_name,
-             last_name: Faker::Name.last_name,
-             zip_code: Faker::Address.zip,
-             gender: Faker::StarWars.specie,
-             admin: true)
+# Toilet.all.each do |toilet|
+#   5.times do
+#     Review.create({
+#       toilet_id: toilet.id,
+#       review_text: Faker::Hipster.paragraphs(3)[0] + Faker::Hipster.paragraphs(3)[1] + Faker::Hipster.paragraphs(3)[2],
+#       reviewer_id: User.all.sample.id,
+#       rating: rand(1..5)
+#       })
+#   end
 
-20.times do
-  User.create({
-    username: Faker::Hipster.word,
-    password: 'passwword',
-    password_confirmation: 'passwword',
-    email: "example@railstutorial.org",
-    first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name,
-    zip_code: Faker::Address.zip,
-    gender: Faker::StarWars.specie
-    })
+# end
 
-end
+# 500.times do
+#   Favorite.create({
+#     favoriter_id:  User.all.sample.id,
+#     toilet_id:  Toilet.all.sample.id
+#     })
 
-Toilet.all.each do |toilet|
-  5.times do
-    Review.create({
-      toilet_id: toilet.id,
-      review_text: Faker::Hipster.paragraphs(3)[0] + Faker::Hipster.paragraphs(3)[1] + Faker::Hipster.paragraphs(3)[2],
-      reviewer_id: User.all.sample.id,
-      rating: rand(1..5)
-      })
-  end
-
-end
-
-500.times do
-  Favorite.create({
-    favoriter_id:  User.all.sample.id,
-    toilet_id:  Toilet.all.sample.id
-    })
-
-end
+# end
