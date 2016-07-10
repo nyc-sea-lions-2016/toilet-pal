@@ -1,4 +1,4 @@
-# ToiletPal
+# toilet-pal
 
 This is a Rails app developed using NYC Open Data for public toilet locations.
 
